@@ -8,13 +8,13 @@ const { transition = 'fade', visible = false } = defineProps<Props>()
 </script>
 
 <template>
-  <transition :name="transition">
+  <Transition :name="transition">
     <div v-if="visible" ref="overlay" class="b-overlay" v-bind="$attrs" />
-  </transition>
+  </Transition>
 </template>
 
-<style lang="scss">
-.base-overlay {
+<style>
+.b-overlay {
   background-color: rgba(0,0,0,0.7);
   bottom: 0;
   left: 0;

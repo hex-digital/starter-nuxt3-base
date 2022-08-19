@@ -12,6 +12,16 @@ export default defineNuxtConfig({
   publicRuntimeConfig,
   privateRuntimeConfig,
 
+  components: {
+    dirs: [
+      '~/components',
+      {
+        path: '~/features/ui/Modals/components',
+        extensions: ['vue'],
+      },
+    ],
+  },
+
   modules: [
     '@vueuse/nuxt',
     '@pinia/nuxt',

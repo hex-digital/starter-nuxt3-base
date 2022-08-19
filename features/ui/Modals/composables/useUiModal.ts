@@ -3,7 +3,7 @@
 import { Logger } from '~/plugins/logger'
 
 /**
- * See ~/docs/base-components/modals.md for documentation on using modals, and this useUiModal composable.
+ * See ~/docs/features/ui/modals.md for documentation on using modals, and this useUiModal composable.
  */
 
 export const CLOSE = 'close'

@@ -5,7 +5,7 @@ interface Props {
   disabled?: boolean
   pure?: boolean
   type?: ButtonType
-  theme?: 'primary'
+  theme?: 'primary' | null
   size?: 'small' | null
   href?: string
 }
@@ -14,7 +14,7 @@ const {
   disabled = false,
   pure = false,
   type = 'button',
-  theme = 'primary',
+  theme = null,
   size = null,
   href = null,
 } = defineProps<Props>()
@@ -24,7 +24,7 @@ const isLink = href?.length
 
 const buttonClasses = computed(() => ({
   'button': true,
-  [`button--${theme}`]: theme && !pure,
+  [`is-${theme}`]: theme && !pure,
   [`button--${size}`]: size,
   'button--pure': pure,
   'button--disabled': disabled,
@@ -33,13 +33,13 @@ const buttonClasses = computed(() => ({
 </script>
 
 <template>
-  <span style="display: inline-block">
+  <span class="b-button">
     <component
-        :is="isLink ? 'a' : 'button'"
-        :class="buttonClasses"
-        :type="type"
-        :aria-disabled="disabled"
-        @click="$emit('click')"
+      :is="isLink ? 'a' : 'button'"
+      :class="buttonClasses"
+      :type="type"
+      :aria-disabled="disabled"
+      @click.stop="$emit('click')"
     >
       <slot />
     </component>
@@ -47,6 +47,10 @@ const buttonClasses = computed(() => ({
 </template>
 
 <style scoped>
+.b-button {
+  display: inline-block;
+}
+
 /* Show a loading state if user hovers over button after SSR, but before JavaScript has hydrated and taken over clientside */
 .button--hydrating {
   cursor: wait;

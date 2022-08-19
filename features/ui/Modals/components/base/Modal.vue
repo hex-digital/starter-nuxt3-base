@@ -74,7 +74,7 @@ function keydownHandler(event: KeyboardEvent) {
 <template>
   <section class="b-modal">
     <BaseOverlay v-if="overlay" class="b-modal__overlay" :transition="transitionOverlay" :visible="visible" />
-    <transition :name="transitionModal">
+    <Transition :name="transitionModal">
       <div v-if="visible" ref="refContainer" class="b-modal__container">
         <UseFocusTrap>
           <slot name="modal-bar">
@@ -99,7 +99,7 @@ function keydownHandler(event: KeyboardEvent) {
           </div>
         </UseFocusTrap>
       </div>
-    </transition>
+    </Transition>
   </section>
 </template>
 

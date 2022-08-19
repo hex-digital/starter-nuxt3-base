@@ -10,6 +10,7 @@ const { modals, close: closeModal } = useUiModal()
       <GenericModal
         v-if="!modal.component"
         :key="modal.id"
+        :id="modal.id"
         :modal-title="modal.title"
         :heading="modal.heading"
         :content="modal.content"
