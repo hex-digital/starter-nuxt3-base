@@ -10,42 +10,17 @@ Most other starters are derived from this one
 - Pre-integrated with Tailwind and PostCSS.
 - Documentation to detail how it all works, and why.
 
-## Prerequisites
+## Prerequisites / Setup
 
-Node 16+ (`node -v`)  
-Yarn 1.22+ (`yarn -v`)
+For installation and setup instructions, please read the [Getting Started] documentation.
 
-## Setup
+## Documentation
 
-Create a `.env` file by copying the `.env.dist` file:
-
-```
-cp .env.dist .env
-```
-
-Install the node modules using `yarn`:
-
-```
-yarn install
-```
-
-## Start up
-
-The app has two build modes: development and production.
-
-Start the dev server for watching and hot module reloading:
-
-```
-yarn dev
-```
-
-Or build for production and run the production server:
-
-```
-yarn build
-yarn start
-```
+Please see the [`~/docs` directory](./docs/START-HERE.md) for documentation.
 
 ## Contributing
 
-All contributions are welcome. Jamie Warburton is the technical lead for this product. All PRs should be tagged for his review.
+All contributions are welcome. Please see our [Contribution Guidelines](./CONTRIBUTING.md).
+
+
+[Getting Started]: ./docs/0.%20Getting%20Started/0.%20Quick%20Start.md
