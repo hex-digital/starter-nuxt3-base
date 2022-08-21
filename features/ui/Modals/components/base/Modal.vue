@@ -104,6 +104,20 @@ function keydownHandler(event: KeyboardEvent) {
 </template>
 
 <style scoped>
+@screen desk {
+  .b-modal {
+    --modal-width: 29.375rem;
+    --modal-top: 50%;
+    --modal-left: 50%;
+    --modal-bottom: none;
+    --modal-right: none;
+    --modal-transform: translate3d(-50%, -50%, 0);
+    --modal-height: auto;
+    --modal-max-height: 90%;
+    --modal-content-padding: 1.875rem 1.25rem;
+  }
+}
+
 .b-modal__container {
   align-content: space-between;
   background-color: var(--modal-background, #f8f8f8);
@@ -138,24 +152,14 @@ function keydownHandler(event: KeyboardEvent) {
   position: absolute;
   right: var(--modal-close-right, 1rem);
   top: var(--modal-close-top, 1rem);
-}
 
-@media (min-width: 75rem) {
-  .b-modal {
-    --modal-width: 29.375rem;
-    --modal-top: 50%;
-    --modal-left: 50%;
-    --modal-bottom: none;
-    --modal-right: none;
-    --modal-transform: translate3d(-50%, -50%, 0);
-    --modal-height: auto;
-    --modal-max-height: 90%;
-    --modal-content-padding: 1.875rem 1.25rem;
-  }
-  .b-modal__close {
+  @screen desk {
     display: inline-flex;
   }
-  .b-modal__bar {
+}
+
+.b-modal__bar {
+  @screen desk {
     display: none;
   }
 }

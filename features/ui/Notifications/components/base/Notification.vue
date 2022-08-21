@@ -120,24 +120,6 @@ function closeHandler() {
   }
 }
 
-@media (min-width: 75rem) {
-  .b-notification {
-    --notification-action-display: inline;
-    --notification-close-right: var(--spacer-sm);
-    --notification-close-top: auto;
-    --notification-icon-margin: 0 var(--spacer-base) 0 0;
-    --notification-max-width: 100%;
-  }
-
-  .b-notification::after {
-    content: none;
-  }
-
-  .b-notification__icon {
-    --icon-size: 1.25rem;
-  }
-}
-
 .b-notification {
   align-items: var(--notification-align-items, flex-start);
   background: var(--notification-background, #333);
@@ -149,14 +131,26 @@ function closeHandler() {
   max-width: var(--notification-max-width, 20.9375rem);
   padding: var(--notification-padding, theme('padding.16') theme('padding.8') theme('padding.16') theme('padding.12'));
   position: relative;
+
+  @screen desk {
+    --notification-action-display: inline;
+    --notification-close-right: var(--spacer-sm);
+    --notification-close-top: auto;
+    --notification-icon-margin: 0 var(--spacer-base) 0 0;
+    --notification-max-width: 100%;
+  }
 }
 
 .b-notification__title {
   display: var(--notification-title-display, block);
-}
 
-.b-notification__title::after {
-  content: ' ';
+  &::after {
+    content: ' ';
+
+    @screen desk {
+      content: none;
+    }
+  }
 }
 
 .b-notification__message {
@@ -174,6 +168,10 @@ function closeHandler() {
   --icon-size: 1rem;
 
   margin: var(--notification-icon-margin, 0.1rem theme('margin.6') 0 0);
+
+  @screen desk {
+    --icon-size: 1.25rem;
+  }
 }
 
 .b-notification__close {
