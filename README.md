@@ -8,7 +8,7 @@ Most other starters are derived from this one
 - Barebones components, with no visuals. Customise as you like.
 - Pre-integrated with Pinia, TypeScript.
 - Pre-integrated with Tailwind and PostCSS.
-- Documentation to detail how it all works, and why.
+- [Documentation](./docs) to detail how it all works, and why.
 
 ## Prerequisites / Setup
 
@@ -21,6 +21,16 @@ Please see the [`~/docs` directory](./docs/START-HERE.md) for documentation.
 ## Contributing
 
 All contributions are welcome. Please see our [Contribution Guidelines](./CONTRIBUTING.md).
+
+## Attribution
+
+Thank you to numerous open source projects from which we've pulled ideas, inspiration and implementation for
+features and code.
+
+- [Vue Storefront](https://github.com/vuestorefront/vue-storefront) for some excellent Nuxt composables, app structure and blog tutorials where we learnt alot.
+
+And so much gratitude to the whole open source community for the many years of open source software
+we've built upon. Standing on the shoulders of absolute giants. 💪
 
 
 [Getting Started]: ./docs/0.%20Getting%20Started/0.%20Quick%20Start.md

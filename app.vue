@@ -9,5 +9,6 @@ useHead({
   <NuxtLayout cl>
     <NuxtPage />
   </NuxtLayout>
-  <BaseModals />
+  <ModalsController />
+  <NotificationsController />
 </template>
