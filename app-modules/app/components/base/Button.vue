@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import type { ButtonType } from '~/types/html'
+import type { ButtonType } from '~/app-modules/app/types/html'
 
 interface Props {
   disabled?: boolean

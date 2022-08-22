@@ -13,4 +13,4 @@ The Examples aim to show you how to implement common problems, sometimes reachin
 Technical Reference has documentation on actual technical implementation, API schemas, codebase dependencies, and any
 other technical information that would be good to know.
 
-Note that the `~/features` directory is unique, in that each feature has its own Documentation.
+Note that the `~/app-modules` directory is unique, in that each module has its own Documentation.

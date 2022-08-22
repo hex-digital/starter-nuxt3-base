@@ -1,6 +1,6 @@
 <script setup lang="ts">
 /**
- * todo: Implement the base-fade transitions
+ * todo: Implement the app-fade transitions
  * todo: icons
  */
 interface Props {

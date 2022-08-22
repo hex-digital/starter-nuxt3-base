@@ -2,7 +2,7 @@ import { uiFeatureDirectories } from './utils/uiFeature'
 
 export default {
   dirs: [
-    '~/components',
+    '~/app-modules/app/components',
     ...uiFeatureDirectories,
   ],
 }
