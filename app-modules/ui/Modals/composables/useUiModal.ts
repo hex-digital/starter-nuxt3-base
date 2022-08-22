@@ -1,10 +1,7 @@
+// @todo: fix these types now that we've migrated to Vue 3 (these were from Vue 2)
 // import type { AsyncComponent } from 'vue/types/options'
 // import type { VueConstructor } from 'vue'
 import { Logger } from '~/plugins/logger'
-
-/**
- * See ~/docs/features/ui/modals.md for documentation on using modals, and this useUiModal composable.
- */
 
 export const CLOSE = 'close'
 

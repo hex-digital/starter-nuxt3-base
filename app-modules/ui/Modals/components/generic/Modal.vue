@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import type { UiModalButton } from '~/features/ui/Modals/composables/useUiModal';
+import type { UiModalButton } from '~/app-modules/ui/Modals/composables/useUiModal';
 
 interface Props {
   id: Symbol
