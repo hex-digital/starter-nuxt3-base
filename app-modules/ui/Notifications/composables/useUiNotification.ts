@@ -1,40 +1,9 @@
 import { Logger } from '~/plugins/logger';
 import { maxVisibleNotifications, timeToLive } from '../config'
-
-/**
- * See the feature docs for documentation on using notifications, and this useUiNotification composable.
- */
+import type { NotificationData, Notifications } from '../types'
 
 export const DISMISS = 'userDismiss';
 export const REMOVE = 'remove';
-
-export type UiNotificationAction = {
-  text: string;
-  onClick: typeof DISMISS | ((...args: any) => void);
-};
-
-export type NotificationData = {
-  type?: 'info' | 'success' | 'warning' | 'danger';
-  icon?: string;
-  message?: string;
-  action?: UiNotificationAction;
-
-  persistent?: boolean;
-  close?: boolean;
-
-  onDismiss?: () => void;
-  onRemove?: () => void;
-};
-
-export type UiNotification = NotificationData & {
-  id: Symbol;
-  userDismiss: () => void;
-  alive: boolean;
-};
-
-export type Notifications = {
-  notifications: Array<UiNotification>;
-};
 
 const state = reactive<Notifications>({
   notifications: [],
@@ -62,12 +31,16 @@ export default function useUiNotification() {
     if (state.notifications.length > maxVisibleNotifications) state.notifications.shift();
 
     if (!notification.persistent) {
-      setTimeout(userDismiss, timeToLive);
+      setTimeout(userDismiss, (notification.timeToLive || timeToLive) * 1000);
     }
 
     Logger.debug('useUiNotification/send', notification);
 
     return id;
+  }
+
+  function sendWith(...notificationData: Array<NotificationData>) {
+    return send(Object.assign({}, ...notificationData))
   }
 
   function remove(id: Symbol) {
@@ -88,6 +61,7 @@ export default function useUiNotification() {
 
   return {
     send,
+    sendWith,
     remove,
     notifications: computed(() => state.notifications),
   };
