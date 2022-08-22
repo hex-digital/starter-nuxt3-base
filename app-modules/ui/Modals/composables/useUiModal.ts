@@ -1,41 +1,10 @@
 // @todo: fix these types now that we've migrated to Vue 3 (these were from Vue 2)
 // import type { AsyncComponent } from 'vue/types/options'
 // import type { VueConstructor } from 'vue'
+import type { ModalData, Modals } from '~/app-modules/ui/Modals/types';
 import { Logger } from '~/plugins/logger'
 
 export const CLOSE = 'close'
-
-export interface UiModalButton {
-  text: string
-  onClick: typeof CLOSE | ((...args: any) => void)
-  theme?: string
-}
-
-export interface ModalData {
-  title?: string
-  cross?: boolean
-  overlay?: boolean
-  persistent?: boolean
-  transitionOverlay?: string
-  transitionModal?: string
-
-  component?: any // VueConstructor | AsyncComponent<any, any, any, any>
-  componentBinds?: Record<string, any>
-  heading?: string
-  content?: string
-  buttons?: Array<UiModalButton>
-
-  onDismiss?: () => void
-}
-
-export type UiModal = ModalData & {
-  id: Symbol
-  dismiss: () => void
-}
-
-export interface Modals {
-  modals: Array<UiModal>
-}
 
 const state = reactive<Modals>({
   modals: []

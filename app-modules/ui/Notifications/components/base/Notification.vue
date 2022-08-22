@@ -60,11 +60,6 @@ function closeHandler() {
 <!--            class="b-notification__icon"-->
 <!--            color="currentColor"-->
 <!--        />-->
-        <div
-          v-show="icon !== false && iconFile"
-          :type="iconFile"
-          class="b-notification__icon"
-        >x</div>
       </slot>
 
       <div>
