@@ -5,9 +5,10 @@ A starter for a base Nuxt3 site, without UI bells and whistles.
 Most other starters are derived from this one
 
 - A solid application architecture, ready to section application code by modules.
-- Barebones components, with no visuals. Customise as you like.
-- Pre-integrated with Pinia, TypeScript.
-- Pre-integrated with Tailwind and PostCSS.
+- Barebones base components, with little-to-no UI theming. Customise as you like, knowing the basics are covered.
+- Set up for [TypeScript](https://www.typescriptlang.org/).
+- Pre-integrated with [Pinia](https://pinia.vuejs.org/).
+- Pre-integrated with [Tailwind](https://tailwindcss.com/) and PostCSS plugins configured.
 - [Documentation](./docs) to detail how it all works, and why.
 
 ## Prerequisites / Setup
