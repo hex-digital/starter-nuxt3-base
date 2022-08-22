@@ -1,6 +1,6 @@
 export default {
+  order: 'cssnanoLast',
   plugins: {
-    'postcss-import': {},
     'tailwindcss/nesting': {},
     'tailwindcss': {},
     'autoprefixer': {},
