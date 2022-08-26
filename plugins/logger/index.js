@@ -51,29 +51,29 @@ function registerLogger(loggerImplementation, verbosity) {
   }
 
   switch (verbosity) {
-    /**
-     * Progressively blank methods the higher verbosity that's specified.
-     * If NONE is the verbosity, the Logger will be an object with all empty methods, so will do nothing.
-     */
-    /* eslint-disable no-fallthrough */
-    case DEBUG:
-      Logger[VERBOSE] = () => {}
-    case INFO:
-      Logger[DEBUG] = () => {}
-    case NOTICE:
-      Logger[INFO] = () => {}
-    case WARN:
-      Logger[NOTICE] = () => {}
-    case ERROR:
-      Logger[WARN] = () => {}
-    case CRITICAL:
-      Logger[ERROR] = () => {}
-    case EMERGENCY:
-      Logger[CRITICAL] = () => {}
+      /**
+       * Progressively blank methods the higher verbosity that's specified.
+       * If NONE is the verbosity, the Logger will be an object with all empty methods, so will do nothing.
+       */
+      /* eslint-disable no-fallthrough */
     case NONE:
       Logger[EMERGENCY] = () => {}
+    case EMERGENCY:
+      Logger[CRITICAL] = () => {}
+    case CRITICAL:
+      Logger[ERROR] = () => {}
+    case ERROR:
+      Logger[WARN] = () => {}
+    case WARN:
+      Logger[NOTICE] = () => {}
+    case NOTICE:
+      Logger[INFO] = () => {}
+    case INFO:
+      Logger[DEBUG] = () => {}
+    case DEBUG:
+      Logger[VERBOSE] = () => {}
       break
-    /* eslint-enable no-fallthrough */
+      /* eslint-enable no-fallthrough */
   }
 }
 
