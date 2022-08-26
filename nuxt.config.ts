@@ -1,9 +1,9 @@
 import { defineNuxtConfig } from 'nuxt'
 import components from './config/nuxt/components'
-import build from './config/nuxt/build'
-import postcss from './config/nuxt/build'
-import plugins from './config/nuxt/plugins'
-import hooks from './config/nuxt/hooks'
+import { build } from './config/nuxt/build'
+import { postcss } from './config/nuxt/postcss'
+import { plugins } from './config/nuxt/plugins'
+import { hooks } from './config/nuxt/hooks'
 import { privateRuntimeConfig, publicRuntimeConfig } from './config/nuxt/runtimeConfig'
 
 export default defineNuxtConfig({
