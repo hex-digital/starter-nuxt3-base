@@ -2,7 +2,7 @@
 import { onClickOutside } from '@vueuse/core'
 import { UseFocusTrap } from '@vueuse/integrations/useFocusTrap/component'
 import { clearAllBodyScrollLocks, disableBodyScroll } from 'body-scroll-lock'
-import { ESC, ESCAPE } from '~/app-modules/app/constants/keyboardEventKeys'
+import { ESC, ESCAPE } from '~/modules/app/constants/keyboardEventKeys'
 
 interface Props {
   title?: string

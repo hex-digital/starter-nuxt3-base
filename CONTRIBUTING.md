@@ -64,7 +64,7 @@ jumping-off point for a core contributor or even another PR to continue what you
 #### Docs
 
 For changes and new features, please add or update the relevant docs. These are either in [~/docs][./docs] or in the
-docs directory under the specific app module in [~/app-modules][./app-modules].
+docs directory under the specific app module in [~/modules][./modules].
 
 Bugfixes may not warrant docs changes, though it's worth skimming the existing
 docs to see if there are any relevant caveats that need to be removed.

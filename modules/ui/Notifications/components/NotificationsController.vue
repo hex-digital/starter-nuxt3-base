@@ -26,7 +26,7 @@
 
 <script setup lang="ts">
 import {useOnline} from '@vueuse/core'
-import useUiNotification from '~/app-modules/ui/Notifications/composables/useUiNotification';
+import useUiNotification from '~/modules/ui/Notifications/composables/useUiNotification';
 
 const online = useOnline()
 

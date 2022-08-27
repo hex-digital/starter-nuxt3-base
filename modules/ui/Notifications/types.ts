@@ -1,4 +1,4 @@
-import { DISMISS } from '~/app-modules/ui/Notifications/composables/useUiNotification'
+import { DISMISS } from '~/modules/ui/Notifications/composables/useUiNotification'
 
 export type UiNotificationAction = {
   text: string;

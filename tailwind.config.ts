@@ -21,7 +21,7 @@ export default <Config>{
     spacing,
   },
   content: [
-    `app-modules/**/*.{vue,js}`,
+    `modules/**/*.{vue,js}`,
     `layouts/**/*.vue`,
     `pages/**/*.vue`,
     `plugins/**/*.{js,ts}`,
