@@ -13,7 +13,7 @@ These docs are split into 4 sections: Getting Started, Guide, Examples and Techn
 [Technical Reference] has documentation on actual technical implementation, API schemas, codebase dependencies, and any
 other technical information that would be good to know.
 
-Note that the `~/modules` directory is unique, in that each module (except `app`) has its own Documentation.
+Note that the `~/modules` directory is unique, in that each module has its own Documentation.
 
 [Getting Started]: ./0.%20Getting%20Started
 [The Guide]: ./1.%20Guide

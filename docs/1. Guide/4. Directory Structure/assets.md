@@ -1,0 +1,1 @@
+# Guide > Directory Structure > Assets
