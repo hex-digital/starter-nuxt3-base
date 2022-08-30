@@ -9,7 +9,7 @@ Most other starters are derived from this one
 - Set up for [TypeScript](https://www.typescriptlang.org/).
 - Pre-integrated with [Pinia](https://pinia.vuejs.org/).
 - Pre-integrated with [Tailwind](https://tailwindcss.com/) and PostCSS plugins configured.
-- [Documentation](./docs) to detail how it all works, and why.
+- [Documentation](./src/docs) to detail how it all works, and why.
 
 ## Prerequisites / Setup
 
@@ -17,7 +17,7 @@ For installation and setup instructions, please read the [Getting Started] docum
 
 ## Documentation
 
-Please see the [`~/docs` directory](./docs/START-HERE.md) for documentation.
+Please see the [`~/src/docs` directory](./src/docs/START-HERE.md) for documentation.
 
 ## Contributing
 
@@ -34,4 +34,5 @@ And so much gratitude to the whole open source community for the many years of o
 we've built upon. Standing on the shoulders of absolute giants. 💪
 
 
-[Getting Started]: ./docs/0.%20Getting%20Started/0.%20Quick%20Start.md
+[Getting Started]: ./src/docs/0.%20Getting%20Started/0.%20Quick%20Start.md
+
