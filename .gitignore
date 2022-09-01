@@ -4,6 +4,6 @@ dist
 .output
 .nuxt
 .env
-.vscode
+.vscode/*
 !.vscode/settings.json
 .idea
