@@ -25,19 +25,19 @@ const {
 
 const emit = defineEmits(['click:action', 'click:close'])
 
-const iconFile = computed(() => icon !== false && icon != null ? icon : iconFromType(type));
-const colorClass = computed(() => `b-notification--${type}`);
+const iconFile = computed(() => icon !== false && icon != null ? icon : iconFromType(type))
+const colorClass = computed(() => `b-notification--${type}`)
 
 function iconFromType(type: string) {
   switch (type) {
     case 'success':
-      return 'plus';
+      return 'plus'
     case 'danger':
-      return 'x';
+      return 'x'
     case 'warning':
-      return 'warning';
+      return 'warning'
     default:
-      return 'chat';
+      return 'chat'
   }
 }
 
@@ -46,20 +46,20 @@ function actionHandler() {
 }
 
 function closeHandler() {
-  emit('click:close');
+  emit('click:close')
 }
 </script>
 
 <template>
   <transition name="base-fade">
-    <div v-show="visible" :class="['b-notification', colorClass]">
+    <div v-show="visible" class="b-notification" :class="[colorClass]">
       <slot name="icon" v-bind="{ icon }">
-<!--        <BaseIcon-->
-<!--            v-show="icon !== false && iconFile"-->
-<!--            :type="iconFile"-->
-<!--            class="b-notification__icon"-->
-<!--            color="currentColor"-->
-<!--        />-->
+        <!--        <BaseIcon -->
+        <!--            v-show="icon !== false && iconFile" -->
+        <!--            :type="iconFile" -->
+        <!--            class="b-notification__icon" -->
+        <!--            color="currentColor" -->
+        <!--        /> -->
       </slot>
 
       <div>
@@ -81,13 +81,13 @@ function closeHandler() {
       </div>
       <slot name="close" v-bind="{ closeHandler }">
         <BaseButton
-            v-show="close"
-            aria-label="Close notification"
-            class="b-notification__close"
-            pure
-            @click="closeHandler"
+          v-show="close"
+          aria-label="Close notification"
+          class="b-notification__close"
+          pure
+          @click="closeHandler"
         >
-<!--          <BaseIcon color="gray" type="x"/>-->
+          <!--          <BaseIcon color="gray" type="x"/> -->
           <div>x</div>
         </BaseButton>
       </slot>

@@ -1,13 +1,13 @@
 // @todo: fix these types now that we've migrated to Vue 3 (these were from Vue 2)
 // import type { AsyncComponent } from 'vue/types/options'
 // import type { VueConstructor } from 'vue'
-import type { ModalData, Modals } from '~/general/ui/base/Modals/types';
+import type { ModalData, Modals } from '~/general/features/Modals/types'
 import { Logger } from '~/plugins/logger'
 
 export const CLOSE = 'close'
 
 const state = reactive<Modals>({
-  modals: []
+  modals: [],
 })
 const maxVisibleModals = 10
 

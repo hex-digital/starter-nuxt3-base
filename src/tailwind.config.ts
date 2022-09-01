@@ -3,9 +3,7 @@
  * This file isn't processed by webpack. Using `~/` results in some odd runtime problems, without any obvious errors.
  */
 
-import { Config } from 'tailwindcss'
-// @ts-ignore
-import { pxToRem } from '@captaincss/captaincss/helpers'
+import type { Config } from 'tailwindcss'
 import { screens } from './config/tailwind/screens'
 import { spacing } from './config/tailwind/spacing'
 import { safelist } from './config/tailwind/safelist'
@@ -21,12 +19,12 @@ export default <Config>{
     spacing,
   },
   content: [
-    `modules/**/*.{vue,js}`,
-    `layouts/**/*.vue`,
-    `pages/**/*.vue`,
-    `plugins/**/*.{js,ts}`,
-    `App.{js,ts,vue}`,
-    `app.{js,ts,vue}`
+    'modules/**/*.{vue,js}',
+    'layouts/**/*.vue',
+    'pages/**/*.vue',
+    'plugins/**/*.{js,ts}',
+    'App.{js,ts,vue}',
+    'app.{js,ts,vue}',
   ],
   captain: {
     prefix: {

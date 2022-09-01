@@ -32,7 +32,9 @@ const emit = defineEmits(['click:close', 'click:back'])
     </div>
     <div>
       <slot name="title" v-bind="{ title }">
-        <div class="b-bar__title">{{ title }}</div>
+        <div class="b-bar__title">
+          {{ title }}
+        </div>
       </slot>
     </div>
     <div>

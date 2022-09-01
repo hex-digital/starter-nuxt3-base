@@ -51,11 +51,11 @@ function registerLogger(loggerImplementation, verbosity) {
   }
 
   switch (verbosity) {
-      /**
+    /**
        * Progressively blank methods the higher verbosity that's specified.
        * If NONE is the verbosity, the Logger will be an object with all empty methods, so will do nothing.
        */
-      /* eslint-disable no-fallthrough */
+    /* eslint-disable no-fallthrough */
     case NONE:
       Logger[EMERGENCY] = () => {}
     case EMERGENCY:

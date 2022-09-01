@@ -19,9 +19,9 @@ There are 3 ways to use the logger:
 
 ```vue
 <script setup>
-import { Logger } from '~/plugins/logger';
+import { Logger } from '~/plugins/logger'
 
-Logger.debug('test');
+Logger.debug('test')
 </script>
 ```
 
@@ -29,10 +29,10 @@ Logger.debug('test');
 
 ```vue
 <script setup>
-import { useLogger } from '~/plugins/logger';
+import { useLogger } from '~/plugins/logger'
 
-const Logger = useLogger();
-Logger.debug('test');
+const Logger = useLogger()
+Logger.debug('test')
 </script>
 ```
 
@@ -42,7 +42,7 @@ Logger.debug('test');
 <script setup>
 const { $log } = useNuxtApp()
 
-$log.debug('test');
+$log.debug('test')
 </script>
 ```
 
@@ -85,7 +85,7 @@ const defaultModes = {
   production: ERROR,
 
   fallback: WARN,
-};
+}
 ```
 
 ## Providing a Custom Logger
@@ -93,18 +93,18 @@ const defaultModes = {
 To provide a custom logger, create a logger object with keys for all 8 levels:
 
 ```js
-import { EMERGENCY, CRITICAL, ERROR, WARN, NOTICE, INFO, DEBUG, VERBOSE } from '../constants/log-verbosity';
+import { CRITICAL, DEBUG, EMERGENCY, ERROR, INFO, NOTICE, VERBOSE, WARN } from '../constants/log-verbosity'
 
 export const customLogger = {
-  [EMERGENCY]: (message) => console.error(`${EMERGENCY} ${message}`),
-  [CRITICAL]: (message) => console.error(`${CRITICAL} ${message}`),
-  [ERROR]: (message) => console.error(`${ERROR} ${message}`),
-  [WARN]: (message) => console.warn(`${WARN} ${message}`),
-  [NOTICE]: (message) => console.info(`${NOTICE} ${message}`),
-  [INFO]: (message) => console.info(`${INFO} ${message}`),
-  [DEBUG]: (message) => console.debug(`${DEBUG} ${message}`),
-  [VERBOSE]: (message) => console.debug(`${VERBOSE} ${message}`),
-};
+  [EMERGENCY]: message => console.error(`${EMERGENCY} ${message}`),
+  [CRITICAL]: message => console.error(`${CRITICAL} ${message}`),
+  [ERROR]: message => console.error(`${ERROR} ${message}`),
+  [WARN]: message => console.warn(`${WARN} ${message}`),
+  [NOTICE]: message => console.info(`${NOTICE} ${message}`),
+  [INFO]: message => console.info(`${INFO} ${message}`),
+  [DEBUG]: message => console.debug(`${DEBUG} ${message}`),
+  [VERBOSE]: message => console.debug(`${VERBOSE} ${message}`),
+}
 ```
 
 Then import this customLogger into `~/plugins/logger/index.js` and set the `customLogger`

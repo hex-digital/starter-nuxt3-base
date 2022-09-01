@@ -1,7 +1,9 @@
 <template>
-  <PartialHeader />
-  <main>
-    <slot />
-  </main>
-  <PartialFooter />
+  <div>
+    <PartialHeader />
+    <main>
+      <slot />
+    </main>
+    <PartialFooter />
+  </div>
 </template>

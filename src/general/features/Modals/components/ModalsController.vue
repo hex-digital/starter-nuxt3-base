@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import useUiModal from '~/general/ui/base/Modals/composables/useUiModal';
+import useUiModal from '~/general/features/Modals/composables/useUiModal'
 
 const { modals, close: closeModal } = useUiModal()
 </script>
@@ -9,8 +9,8 @@ const { modals, close: closeModal } = useUiModal()
     <template v-for="modal in modals">
       <GenericModal
         v-if="!modal.component"
-        :key="modal.id"
         :id="modal.id"
+        :key="modal.id"
         :modal-title="modal.title"
         :heading="modal.heading"
         :content="modal.content"
@@ -19,7 +19,7 @@ const { modals, close: closeModal } = useUiModal()
       />
 
       <BaseModal v-else :key="modal.id" :visible="true" :title="modal.title" @close="closeModal(modal.id)">
-        <component :is="modal.component" v-bind="modal.componentBinds" @close="closeModal(modal.id)"></component>
+        <component :is="modal.component" v-bind="modal.componentBinds" @close="closeModal(modal.id)" />
       </BaseModal>
     </template>
   </div>

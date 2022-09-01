@@ -5,4 +5,5 @@ dist
 .nuxt
 .env
 .vscode
+!.vscode/settings.json
 .idea

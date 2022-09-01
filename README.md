@@ -28,6 +28,7 @@ All contributions are welcome. Please see our [Contribution Guidelines](./CONTRI
 Thank you to numerous open source projects from which we've pulled ideas, inspiration and implementation for
 features and code.
 
+- [Vitesse Nuxt3](https://github.com/antfu/vitesse-nuxt3) for the initial Nuxt3 and Vite boilerplate. Thanks Anthony!
 - [Vue Storefront](https://github.com/vuestorefront/vue-storefront) for some excellent Nuxt composables, app structure and blog tutorials where we learnt alot.
 
 And so much gratitude to the whole open source community for the many years of open source software
@@ -35,4 +36,3 @@ we've built upon. Standing on the shoulders of absolute giants. 💪
 
 
 [Getting Started]: ./src/docs/0.%20Getting%20Started/0.%20Quick%20Start.md
-

@@ -43,12 +43,13 @@ watch(
           disableBodyScroll(refContent.value)
       })
       document.addEventListener('keydown', keydownHandler)
-    } else {
+    }
+    else {
       clearAllBodyScrollLocks()
       document.removeEventListener('keydown', keydownHandler)
     }
   },
-  { immediate: true }
+  { immediate: true },
 )
 
 onBeforeUnmount(() => {
@@ -89,7 +90,8 @@ function keydownHandler(event: KeyboardEvent) {
               type="button"
               pure
               @click="close"
-            >x
+            >
+              x
               <!-- <BaseIcon type="x" size="xsmall" color="gray" /> -->
             </BaseButton>
           </slot>

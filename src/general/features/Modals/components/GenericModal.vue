@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import type { UiModalButton } from '~/general/ui/base/Modals/composables/useUiModal';
+import type { UiModalButton } from '~/general/features/Modals'
 
 interface Props {
   id: Symbol
@@ -29,7 +29,9 @@ function onClick(onClick: UiModalButton['onClick']) {
 
 <template>
   <BaseModal :visible="true" :title="modalTitle" @close="$emit('close')">
-    <h4 v-if="heading" style="margin-bottom: 2rem">{{ heading }}</h4>
+    <h4 v-if="heading" style="margin-bottom: 2rem">
+      {{ heading }}
+    </h4>
     <div v-if="content" v-html="content" />
     <BaseButton v-for="(button, index) in buttons" :key="index" :theme="button.theme" @click="onClick(button.onClick)">
       {{ button.text }}

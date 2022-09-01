@@ -1,15 +1,6 @@
 <script setup lang="ts">
 import type { ButtonType } from '~/general/types/html'
 
-interface Props {
-  disabled?: boolean
-  pure?: boolean
-  type?: ButtonType
-  theme?: 'primary' | null
-  size?: 'small' | null
-  href?: string
-}
-
 const {
   disabled = false,
   pure = false,
@@ -18,6 +9,17 @@ const {
   size = null,
   href = null,
 } = defineProps<Props>()
+
+defineEmits(['click'])
+
+interface Props {
+  disabled?: boolean
+  pure?: boolean
+  type?: ButtonType
+  theme?: 'primary' | null
+  size?: 'small' | null
+  href?: string
+}
 
 const onClient = computed(() => !process.server)
 const isLink = href?.length

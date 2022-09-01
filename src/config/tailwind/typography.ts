@@ -1,4 +1,4 @@
-// @ts-ignore
+// @ts-expect-error CaptainCSS doesn't yet export any types so TypeScript doesn't like it. It wasn't us to write a declaration module, but ideally CaptainCSS would just support types in future
 import { pxToRemPair } from '@captaincss/captaincss/helpers'
 
 export const fontSize = {
@@ -22,4 +22,4 @@ export const fontSize = {
   ...pxToRemPair(12),
   ...pxToRemPair(10),
   ...pxToRemPair(1),
-};
+}

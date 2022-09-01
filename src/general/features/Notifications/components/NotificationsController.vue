@@ -1,48 +1,48 @@
-<template>
-  <transition-group class="global-notifications" name="slide-fade" tag="div">
-    <BaseNotification
-        v-for="notification in notifications"
-        :key="notification.id"
-        :button="notification.action && notification.action.text"
-        :message="notification.message"
-        :type="notification.type || 'info'"
-        :icon="notification.icon"
-        :close="notification.close || true"
-        visible
-        @click:close="notification.userDismiss"
-        @click:action="notification.action && notification.action.onClick()"
-    />
-    <BaseNotification
-        v-show="!online"
-        key="offline"
-        message="Your internet seems to be unstable or disconnected."
-        type="info"
-        :close="true"
-        visible
-        @click:close="closeOfflineNotice"
-    />
-  </transition-group>
-</template>
-
 <script setup lang="ts">
-import {useOnline} from '@vueuse/core'
-import useUiNotification from '~/general/ui/base/Notifications/composables/useUiNotification';
+import { useOnline } from '@vueuse/core'
+import useUiNotification from '~/general/features/Notifications/composables/useUiNotification'
 
 const online = useOnline()
 
-const {notifications} = useUiNotification();
-const disableOfflineNotice = ref(false);
+const { notifications } = useUiNotification()
+const disableOfflineNotice = ref(false)
 
 function closeOfflineNotice() {
   if (disableOfflineNotice.value === false) {
-    disableOfflineNotice.value = true;
+    disableOfflineNotice.value = true
 
     setTimeout(() => {
-      disableOfflineNotice.value = false;
-    }, 1000 * 60 * 30);
+      disableOfflineNotice.value = false
+    }, 1000 * 60 * 30)
   }
 }
 </script>
+
+<template>
+  <transition-group class="global-notifications" name="slide-fade" tag="div">
+    <BaseNotification
+      v-for="notification in notifications"
+      :key="notification.id"
+      :button="notification.action && notification.action.text"
+      :message="notification.message"
+      :type="notification.type || 'info'"
+      :icon="notification.icon"
+      :close="notification.close || true"
+      visible
+      @click:close="notification.userDismiss"
+      @click:action="notification.action && notification.action.onClick()"
+    />
+    <BaseNotification
+      v-if="!online"
+      key="offline"
+      message="Your internet seems to be unstable or disconnected."
+      type="info"
+      :close="true"
+      visible
+      @click:close="closeOfflineNotice"
+    />
+  </transition-group>
+</template>
 
 <style>
 /** `transition-group` elements don't get the scope selector on their HTML properly, so need to make this style tag unscoped. */

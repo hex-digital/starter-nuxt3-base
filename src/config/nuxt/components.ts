@@ -1,26 +1,31 @@
 export default {
   dirs: [
     {
-      path: '~/general/ui/base/',
+      path: '~/general/components/base/',
       pattern: '**/*.vue',
       pathPrefix: false,
     },
     {
-      path: '~/general/ui/dev/',
+      path: '~/general/components/dev/',
       pattern: '**/*.vue',
       prefix: 'Dev',
       pathPrefix: false,
     },
     {
-      path: '~/general/ui/partial/',
+      path: '~/general/components/partial/',
       pattern: '**/*.vue',
       prefix: 'Partial',
       pathPrefix: false,
     },
     {
-      path: '~/general/ui/prefab/',
+      path: '~/general/components/prefab/',
       pattern: '**/*.vue',
       prefix: 'Prefab',
+      pathPrefix: false,
+    },
+    {
+      path: '~/general/features',
+      pattern: '**/*.vue',
       pathPrefix: false,
     },
   ],

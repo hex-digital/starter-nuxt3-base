@@ -38,9 +38,9 @@ And then used like this:
 
 ```vue
 <script setup>
-import { NEXT_DAY } from '~/constants/deliveryTimeframes';
+import { NEXT_DAY } from '~/constants/deliveryTimeframes'
 
-this.defaultTimeframe = NEXT_DAY;
+this.defaultTimeframe = NEXT_DAY
 </script>
 ```
 
@@ -48,9 +48,9 @@ Or alternatively:
 
 ```vue
 <script setup>
-import DELIVERY_TIMEFRAMES from '~/constants/deliveryTimeframes';
+import DELIVERY_TIMEFRAMES from '~/constants/deliveryTimeframes'
 
-this.defaultTimeframe = DELIVERY_TIMEFRAMES.NEXT_DAY;
+this.defaultTimeframe = DELIVERY_TIMEFRAMES.NEXT_DAY
 </script>
 ```
 
