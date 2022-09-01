@@ -11,7 +11,7 @@ const state = reactive<Modals>({
 })
 const maxVisibleModals = 10
 
-export default function useUiModal() {
+export function useUiModal() {
   function open(modalData?: ModalData) {
     const id = Symbol('modal')
 

@@ -1,4 +1,4 @@
-import type { CLOSE } from '~/general/features/Modals/composables/useUiModal'
+import type { CLOSE } from '~/general/features/Modals'
 
 export interface UiModalButton {
   text: string

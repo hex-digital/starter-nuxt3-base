@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import useUiModal from '~/general/features/Modals/composables/useUiModal'
+import { useUiModal } from '~/general/features/Modals'
 
 const { modals, close: closeModal } = useUiModal()
 </script>

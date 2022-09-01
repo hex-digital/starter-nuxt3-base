@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { useOnline } from '@vueuse/core'
-import useUiNotification from '~/general/features/Notifications/composables/useUiNotification'
+import { useUiNotification } from '~/general/features/Notifications'
 
 const online = useOnline()
 

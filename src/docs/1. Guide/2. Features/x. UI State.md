@@ -31,7 +31,7 @@ Rather than have them each import the Login Modal, the `useUiModal` composable, 
 the Modal, a method can be added to the `useUiState` composable to do this more succinctly:
 
 ```typescript
-import { useUiModal } from '~/general/ui/base/Modals/composables/useUiModal';
+import { useUiModal } from '~/general/features/Modals';
 import LoginModal from '~/modules/authentication/components/modals/LoginModal.vue';
 
 export default function useUiState() {

@@ -9,7 +9,7 @@ const state = reactive<Notifications>({
   notifications: [],
 })
 
-export default function useUiNotification() {
+export function useUiNotification() {
   function send(notificationData?: NotificationData) {
     const id = Symbol('notification')
     const alive = true
