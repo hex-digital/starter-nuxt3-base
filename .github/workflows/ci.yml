@@ -52,7 +52,7 @@ jobs:
       #  run: yarn test
 
       - name: Build app 🖥
-        run: yarn build
+        run: yarn --cwd src build
         env: # Or as an environment variable
           APP_DOMAIN: localhost:3000
           APP_ENVIRONMENT: preview
