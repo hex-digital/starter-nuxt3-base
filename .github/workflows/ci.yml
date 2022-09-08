@@ -29,8 +29,8 @@ jobs:
           check-latest: true
 
       - name: Setup Nuxt application 🥾
-          run: |
-            cp .github/.env.src src/.env
+        run: |
+          cp .github/.env.src src/.env
 
       - name: Get yarn cache directory path 🛠
         id: yarn-cache-dir-path
