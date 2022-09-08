@@ -17,10 +17,6 @@ const defaultModes = {
   fallback: WARN,
 }
 
-/**
- * Provide a Logger to the application.
- * Please see ~/docs/logging.md for usage information.
- */
 const loggerPlugin = defineNuxtPlugin((nuxtApp) => {
   const verbosity
     = nuxtApp.$config.logLevel
