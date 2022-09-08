@@ -6,10 +6,11 @@ import { plugins } from './config/nuxt/plugins'
 import { hooks } from './config/nuxt/hooks'
 import { privateRuntimeConfig, publicRuntimeConfig } from './config/nuxt/runtimeConfig'
 
+// See: https://v3.nuxtjs.org/api/configuration/nuxt.config
 export default defineNuxtConfig({
   experimental: {
-    reactivityTransform: true,
-    viteNode: false,
+    reactivityTransform: true, // See: https://vuejs.org/guide/extras/reactivity-transform.html
+    viteNode: false, // See: https://v3.nuxtjs.org/api/configuration/nuxt.config#vitenode
   },
 
   publicRuntimeConfig,
