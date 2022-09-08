@@ -15,13 +15,16 @@
     "lint:fix": "eslint src --fix",
     "prepare": "husky install"
   },
+  "dependencies": {},
   "devDependencies": {
+    "@commitlint/cli": "^17.1.2",
+    "@hexdigital/config-commitlint": "^1.0.1",
     "@hexdigital/eslint-config": "^1.0.6",
     "eslint": "^8.23.0",
     "husky": "^8.0.1",
     "typescript": "^4.8.2"
   },
   "lint-staged": {
-    "./src/*.{js,jsx,ts,tsx,vue}": "yarn lint"
+    "./src/*.{js,jsx,ts,tsx,vue}": "eslint --fix"
   }
 }
