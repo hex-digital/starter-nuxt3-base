@@ -1,28 +1,40 @@
 version: 2
 updates:
-  # Fetch and update latest `composer` packages
-  - package-ecosystem: composer
+  # Fetch and update latest `yarn` packages
+  - package-ecosystem: npm
     directory: '/'
     schedule:
       interval: weekly
-      day: tuesday
-      time: '11:00'
+      day: thursday
+      time: '14:00'
     open-pull-requests-limit: 15
     commit-message:
       prefix: fix
       prefix-development: chore
       include: scope
 
-  # Fetch and update latest `github-actions` pkgs
+  # Fetch and update latest `github-actions` packages
   - package-ecosystem: github-actions
     directory: '/'
     schedule:
       interval: weekly
-      day: tuesday
-      time: '11:00'
+      day: thursday
+      time: '14:00'
     open-pull-requests-limit: 10
     commit-message:
       prefix: fix
       prefix-development: chore
       include: scope
 
+  # Fetch and update latest project `yarn` packages
+  - package-ecosystem: npm
+    directory: '/src/'
+    schedule:
+      interval: weekly
+      day: thursday
+      time: '14:00'
+    open-pull-requests-limit: 15
+    commit-message:
+      prefix: fix
+      prefix-development: chore
+      include: scope
