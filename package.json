@@ -1,12 +1,18 @@
 {
   "packageManager": "yarn@1.22.9",
   "scripts": {
+    "install:all": "for D in */; do yarn --cwd \"${D}\"; done",
     "lint": "eslint src",
-    "lint:fix": "eslint src --fix"
+    "lint:fix": "eslint src --fix",
+    "prepare": "husky install"
+  },
+  "lint-staged": {
+    "./src/*.{js,jsx,ts,tsx,vue}": "yarn lint"
   },
   "devDependencies": {
     "@hexdigital/eslint-config": "^1.0.6",
     "eslint": "^8.23.0",
+    "husky": "^8.0.1",
     "typescript": "^4.8.2"
   }
 }
