@@ -23,6 +23,16 @@ Please see the [`~/docs` directory](./docs/START-HERE.md) for documentation.
 
 All contributions are welcome. Please see our [Contribution Guidelines](./CONTRIBUTING.md).
 
+### Lint and Test staged files pre-commit
+
+When attempting to commit, the staged files will be linted, and any relevant tests will be run.
+
+If the linting fails or the tests do not pass, you will be unable to commit.
+
+In rare circumstances, this may block you from committing when we do not wish it to. In those cases, delete the offending line from
+the `lint-staged` key, in `package.json`. Note that this should be a temporary measure, and quickly remedied. Do not commit
+ the `package.json` changes.
+
 ### Conventional Commits
 
 Our commit messages use conventional commits. If your commit message does not match the defined standard, you'll receive an error
