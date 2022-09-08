@@ -8,11 +8,6 @@ on:
     branches:
       - main
 
-env:
-  SRC_APP_DOMAIN: localhost:3000
-  SRC_APP_ENVIRONMENT: preview
-  SRC_APP_LOG_LEVEL: warn
-
 jobs:
   ci:
     runs-on: ${{ matrix.os }}
@@ -33,6 +28,10 @@ jobs:
           node-version: ${{ matrix.node }}
           check-latest: true
 
+      - name: Setup Nuxt application 🥾
+          run: |
+            cp .github/.env.src src/.env
+
       - name: Get yarn cache directory path 🛠
         id: yarn-cache-dir-path
         run: echo "::set-output name=dir::$(yarn cache dir)"
@@ -49,10 +48,6 @@ jobs:
       - name: Install dependencies 👨🏻‍💻
         if: steps.yarn-cache.outputs.cache-hit != 'true'
         run: yarn install && yarn --cwd src install
-        env: # Or as an environment variable
-          APP_DOMAIN: ${{ env.ENV_APP_DOMAIN }}
-          APP_ENVIRONMENT: ${{ env.SRC_APP_ENVIRONMENT }}
-          APP_LOG_LEVEL: ${{ env.SRC_APP_LOG_LEVEL }}
 
       - name: Run linter 👀
         run: yarn lint
@@ -62,7 +57,3 @@ jobs:
 
       - name: Build app 🖥
         run: yarn --cwd src build
-        env: # Or as an environment variable
-          APP_DOMAIN: ${{ env.ENV_APP_DOMAIN }}
-          APP_ENVIRONMENT: ${{ env.SRC_APP_ENVIRONMENT }}
-          APP_LOG_LEVEL: ${{ env.SRC_APP_LOG_LEVEL }}
