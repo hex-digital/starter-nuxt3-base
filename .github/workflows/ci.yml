@@ -8,6 +8,11 @@ on:
     branches:
       - main
 
+env:
+  SRC_APP_DOMAIN: localhost:3000
+  SRC_APP_ENVIRONMENT: preview
+  SRC_APP_LOG_LEVEL: warn
+
 jobs:
   ci:
     runs-on: ${{ matrix.os }}
@@ -44,6 +49,10 @@ jobs:
       - name: Install dependencies 👨🏻‍💻
         if: steps.yarn-cache.outputs.cache-hit != 'true'
         run: yarn install && yarn --cwd src install
+        env: # Or as an environment variable
+          APP_DOMAIN: ${{ env.ENV_APP_DOMAIN }}
+          APP_ENVIRONMENT: ${{ env.SRC_APP_ENVIRONMENT }}
+          APP_LOG_LEVEL: ${{ env.SRC_APP_LOG_LEVEL }}
 
       - name: Run linter 👀
         run: yarn lint
@@ -54,6 +63,6 @@ jobs:
       - name: Build app 🖥
         run: yarn --cwd src build
         env: # Or as an environment variable
-          APP_DOMAIN: localhost:3000
-          APP_ENVIRONMENT: preview
-          APP_LOG_LEVEL: warn
+          APP_DOMAIN: ${{ env.ENV_APP_DOMAIN }}
+          APP_ENVIRONMENT: ${{ env.SRC_APP_ENVIRONMENT }}
+          APP_LOG_LEVEL: ${{ env.SRC_APP_LOG_LEVEL }}
