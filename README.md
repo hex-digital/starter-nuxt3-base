@@ -23,6 +23,13 @@ Please see the [`~/docs` directory](./docs/START-HERE.md) for documentation.
 
 All contributions are welcome. Please see our [Contribution Guidelines](./CONTRIBUTING.md).
 
+### Conventional Commits
+
+Our commit messages use conventional commits. If your commit message does not match the defined standard, you'll receive an error
+message and the commit will not be added.
+
+To learn how to write conventional commits, please [read the conventional commits guide](https://www.conventionalcommits.org/).
+
 ## Attribution
 
 Thank you to numerous open source projects from which we've pulled ideas, inspiration and implementation for
