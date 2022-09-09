@@ -21,7 +21,7 @@ function closeOfflineNotice() {
 <template>
   <transition-group class="global-notifications" name="slide-fade" tag="div">
     <BaseNotification
-      v-for="notification in notifications"
+      v-for="notification in notifications as any"
       :key="notification.id"
       :button="notification.action && notification.action.text"
       :message="notification.message"
@@ -30,7 +30,7 @@ function closeOfflineNotice() {
       :close="notification.close || true"
       visible
       @click:close="notification.userDismiss"
-      @click:action="notification.action && notification.action.onClick()"
+      @click:action="notification?.action?.onClick"
     />
     <BaseNotification
       v-if="!online"

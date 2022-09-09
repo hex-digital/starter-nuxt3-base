@@ -1,3 +1,6 @@
+// @todo: fix these types for the component key now that we've migrated to Vue 3 (these were from Vue 2)
+// import type { AsyncComponent } from 'vue/types/options'
+// import type { VueConstructor } from 'vue'
 import type { CLOSE } from '~/general/features/Modals'
 
 export interface UiModalButton {

@@ -29,4 +29,8 @@ export default defineNuxtConfig({
   plugins,
 
   hooks,
+
+  typescript: {
+    strict: true,
+  },
 })
