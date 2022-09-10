@@ -1,10 +1,10 @@
-import { defineNuxtConfig } from 'nuxt'
-import components from './config/nuxt/components'
-import { build } from './config/nuxt/build'
-import { postcss } from './config/nuxt/postcss'
-import { plugins } from './config/nuxt/plugins'
-import { hooks } from './config/nuxt/hooks'
-import { privateRuntimeConfig, publicRuntimeConfig } from './config/nuxt/runtimeConfig'
+import { defineNuxtConfig } from 'nuxt';
+import components from './config/nuxt/components';
+import { build } from './config/nuxt/build';
+import { postcss } from './config/nuxt/postcss';
+import { plugins } from './config/nuxt/plugins';
+import { hooks } from './config/nuxt/hooks';
+import { privateRuntimeConfig, publicRuntimeConfig } from './config/nuxt/runtimeConfig';
 
 // See: https://v3.nuxtjs.org/api/configuration/nuxt.config
 export default defineNuxtConfig({
@@ -33,4 +33,4 @@ export default defineNuxtConfig({
   typescript: {
     strict: true,
   },
-})
+});

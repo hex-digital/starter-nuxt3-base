@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import type { UiModalButton } from '~/general/features/Modals'
+import type { UiModalButton } from '~/general/features/Modals';
 
 interface Props {
   id: Symbol
@@ -15,15 +15,15 @@ const {
   heading = '',
   content = '',
   buttons = () => [],
-} = defineProps<Props>()
+} = defineProps<Props>();
 
-const emit = defineEmits(['close'])
+const emit = defineEmits(['close']);
 
 function onClick(onClick: UiModalButton['onClick']) {
   if (onClick === 'close')
-    emit('close')
+    emit('close');
   else
-    onClick()
+    onClick();
 }
 </script>
 

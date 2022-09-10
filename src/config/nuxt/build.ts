@@ -1,1 +1,1 @@
-export const build = {}
+export const build = {};

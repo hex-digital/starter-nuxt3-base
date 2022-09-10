@@ -1,7 +1,7 @@
 <script setup lang="ts">
-import { useUiModal } from '~/general/features/Modals'
+import { useUiModal } from '~/general/features/Modals';
 
-const { modals, close: closeModal } = useUiModal()
+const { modals, close: closeModal } = useUiModal();
 </script>
 
 <template>

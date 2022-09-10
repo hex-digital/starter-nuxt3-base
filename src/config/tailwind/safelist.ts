@@ -1,1 +1,1 @@
-export const safelist = []
+export const safelist = [];

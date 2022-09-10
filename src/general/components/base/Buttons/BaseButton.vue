@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import type { ButtonType } from '~/general/types/html'
+import type { ButtonType } from '~/general/types/html';
 
 const {
   disabled = false,
@@ -8,9 +8,9 @@ const {
   theme = null,
   size = null,
   href = null,
-} = defineProps<Props>()
+} = defineProps<Props>();
 
-defineEmits(['click'])
+defineEmits(['click']);
 
 interface Props {
   disabled?: boolean
@@ -21,8 +21,8 @@ interface Props {
   href?: string
 }
 
-const onClient = computed(() => !process.server)
-const isLink = href?.length
+const onClient = computed(() => !process.server);
+const isLink = href?.length;
 
 const buttonClasses = computed(() => ({
   'button': true,
@@ -31,7 +31,7 @@ const buttonClasses = computed(() => ({
   'button--pure': pure,
   'button--disabled': disabled,
   'button--hydrating': !onClient,
-}))
+}));
 </script>
 
 <template>

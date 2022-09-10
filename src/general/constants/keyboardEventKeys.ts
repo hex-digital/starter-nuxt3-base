@@ -1,2 +1,2 @@
-export const ESCAPE = 'Escape'
-export const ESC = 'Esc'
+export const ESCAPE = 'Escape';
+export const ESC = 'Esc';

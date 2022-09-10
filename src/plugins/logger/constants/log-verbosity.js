@@ -1,12 +1,12 @@
-export const NONE = 'none'
-export const EMERGENCY = 'emergency'
-export const CRITICAL = 'critical'
-export const ERROR = 'error'
-export const WARN = 'warning'
-export const NOTICE = 'notice'
-export const INFO = 'info'
-export const DEBUG = 'debug'
-export const VERBOSE = 'verbose'
+export const NONE = 'none';
+export const EMERGENCY = 'emergency';
+export const CRITICAL = 'critical';
+export const ERROR = 'error';
+export const WARN = 'warning';
+export const NOTICE = 'notice';
+export const INFO = 'info';
+export const DEBUG = 'debug';
+export const VERBOSE = 'verbose';
 
 export default {
   NONE,
@@ -18,4 +18,4 @@ export default {
   INFO,
   DEBUG,
   VERBOSE,
-}
+};

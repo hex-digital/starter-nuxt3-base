@@ -1,5 +1,5 @@
-import { EMERGENCY, CRITICAL, ERROR, WARN, NOTICE, INFO, DEBUG, VERBOSE } from '../constants/log-verbosity' // eslint-disable-line sort-imports
-import LOG_LEVEL_STYLE from './log-style'
+import { EMERGENCY, CRITICAL, ERROR, WARN, NOTICE, INFO, DEBUG, VERBOSE } from '../constants/log-verbosity'; // eslint-disable-line sort-imports
+import LOG_LEVEL_STYLE from './log-style';
 
 export const defaultLogger = {
   /* eslint-disable no-console */
@@ -12,25 +12,25 @@ export const defaultLogger = {
   [DEBUG]: makeLoggingMethod(DEBUG, console.log)(), // Detailed debug information
   [VERBOSE]: makeLoggingMethod(VERBOSE, console.log)(), // Extremely detailed debug information
   /* eslint-enable no-console */
-}
+};
 
 function makeLoggingMethod(verbosity, loggingFunction) {
   return function log() {
-    return Function.prototype.bind.apply(loggingFunction, [console, ...makeMessageStyle(verbosity)])
-  }
+    return Function.prototype.bind.apply(loggingFunction, [console, ...makeMessageStyle(verbosity)]);
+  };
 }
 
 function makeMessageStyle(verbosity) {
-  return mountLog(`${verbosity}`, LOG_LEVEL_STYLE[verbosity])
+  return mountLog(`${verbosity}`, LOG_LEVEL_STYLE[verbosity]);
 }
 
 function mountLog(name, style) {
   const detectNode
     = Object.prototype.toString.call(typeof process !== 'undefined' ? process : 0) === '[object process]'
-    || process.env.NODE_ENV === 'production'
+    || process.env.NODE_ENV === 'production';
 
   if (detectNode)
-    return [`${name}: `]
+    return [`${name}: `];
 
-  return [`%c LOG %c ${name} %c`, LOG_LEVEL_STYLE.prefix, style, LOG_LEVEL_STYLE.reset]
+  return [`%c LOG %c ${name} %c`, LOG_LEVEL_STYLE.prefix, style, LOG_LEVEL_STYLE.reset];
 }

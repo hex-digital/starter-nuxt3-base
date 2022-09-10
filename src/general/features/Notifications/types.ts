@@ -1,4 +1,4 @@
-import type { DISMISS } from '~/general/features/Notifications/composables/useUiNotification'
+import type { DISMISS } from '~/general/features/Notifications/composables/useUiNotification';
 
 export interface UiNotificationAction {
   text: string
@@ -23,7 +23,7 @@ export type UiNotification = NotificationData & {
   id: Symbol
   userDismiss: () => void
   alive: boolean
-}
+};
 
 export interface Notifications {
   notifications: Array<UiNotification>
