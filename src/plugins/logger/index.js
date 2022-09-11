@@ -1,9 +1,9 @@
-import { EMERGENCY, CRITICAL, ERROR, WARN, NOTICE, INFO, DEBUG, VERBOSE, NONE } from './constants/log-verbosity' // eslint-disable-line sort-imports
-import { defaultLogger } from './default-logger'
-import { defineNuxtPlugin } from '#app'
+import { EMERGENCY, CRITICAL, ERROR, WARN, NOTICE, INFO, DEBUG, VERBOSE, NONE } from './constants/log-verbosity'; // eslint-disable-line sort-imports
+import { defaultLogger } from './default-logger';
+import { defineNuxtPlugin } from '#app';
 
 // eslint-disable-next-line import/no-mutable-exports
-let Logger = defaultLogger
+let Logger = defaultLogger;
 
 const defaultModes = {
   test: NONE,
@@ -15,36 +15,36 @@ const defaultModes = {
   production: ERROR,
 
   fallback: WARN,
-}
+};
 
 const loggerPlugin = defineNuxtPlugin((nuxtApp) => {
   const verbosity
     = nuxtApp.$config.logLevel
     || defaultModes[nuxtApp.$config.appEnv]
     || defaultModes[process?.env?.NODE_ENV]
-    || defaultModes.fallback
+    || defaultModes.fallback;
 
-  const customLogger = null // @todo allow user to provide their own custom logger
+  const customLogger = null; // @todo allow user to provide their own custom logger
 
-  registerLogger(customLogger || defaultLogger, verbosity)
+  registerLogger(customLogger || defaultLogger, verbosity);
 
-  nuxtApp.provide('log', () => Logger)
-})
+  nuxtApp.provide('log', () => Logger);
+});
 
 function useLogger() {
-  return Logger
+  return Logger;
 }
 
 function registerLogger(loggerImplementation, verbosity) {
   if (typeof loggerImplementation === 'function') {
-    Logger = loggerImplementation(verbosity)
-    return
+    Logger = loggerImplementation(verbosity);
+    return;
   }
 
   Logger = {
     ...defaultLogger,
     ...loggerImplementation,
-  }
+  };
 
   switch (verbosity) {
     /**
@@ -53,25 +53,25 @@ function registerLogger(loggerImplementation, verbosity) {
        */
     /* eslint-disable no-fallthrough */
     case NONE:
-      Logger[EMERGENCY] = () => {}
+      Logger[EMERGENCY] = () => {};
     case EMERGENCY:
-      Logger[CRITICAL] = () => {}
+      Logger[CRITICAL] = () => {};
     case CRITICAL:
-      Logger[ERROR] = () => {}
+      Logger[ERROR] = () => {};
     case ERROR:
-      Logger[WARN] = () => {}
+      Logger[WARN] = () => {};
     case WARN:
-      Logger[NOTICE] = () => {}
+      Logger[NOTICE] = () => {};
     case NOTICE:
-      Logger[INFO] = () => {}
+      Logger[INFO] = () => {};
     case INFO:
-      Logger[DEBUG] = () => {}
+      Logger[DEBUG] = () => {};
     case DEBUG:
-      Logger[VERBOSE] = () => {}
-      break
+      Logger[VERBOSE] = () => {};
+      break;
       /* eslint-enable no-fallthrough */
   }
 }
 
-export { Logger, registerLogger, useLogger }
-export default loggerPlugin
+export { Logger, registerLogger, useLogger };
+export default loggerPlugin;

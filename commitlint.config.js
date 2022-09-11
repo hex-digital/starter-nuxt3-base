@@ -1,1 +1,1 @@
-module.exports = {extends: ['@hexdigital/config-commitlint']};
+module.exports = { extends: ['@hexdigital/config-commitlint'] }

@@ -1,8 +1,8 @@
 <script setup lang="ts">
-import { onClickOutside } from '@vueuse/core'
-import { UseFocusTrap } from '@vueuse/integrations/useFocusTrap/component'
-import { clearAllBodyScrollLocks, disableBodyScroll } from 'body-scroll-lock'
-import { ESC, ESCAPE } from '~/general/constants/keyboardEventKeys'
+import { onClickOutside } from '@vueuse/core';
+import { UseFocusTrap } from '@vueuse/integrations/useFocusTrap/component';
+import { clearAllBodyScrollLocks, disableBodyScroll } from 'body-scroll-lock';
+import { ESC, ESCAPE } from '~/general/constants/keyboardEventKeys';
 
 interface Props {
   title?: string
@@ -22,53 +22,53 @@ const {
   persistent = false,
   transitionOverlay = 'fade',
   transitionModal = 'fade',
-} = defineProps<Props>()
+} = defineProps<Props>();
 
-const emit = defineEmits(['close'])
+const emit = defineEmits(['close']);
 
-const refContainer = ref<HTMLElement | null>(null)
-const refContent = ref<HTMLElement | null>(null)
+const refContainer = ref<HTMLElement | null>(null);
+const refContent = ref<HTMLElement | null>(null);
 
-onClickOutside(refContainer, () => closeIfNotPersistent())
+onClickOutside(refContainer, () => closeIfNotPersistent());
 
 watch(
   () => visible,
   (isVisible) => {
     if (!process.client)
-      return
+      return;
 
     if (isVisible) {
       nextTick(() => {
         if (refContent.value)
-          disableBodyScroll(refContent.value)
-      })
-      document.addEventListener('keydown', keydownHandler)
+          disableBodyScroll(refContent.value);
+      });
+      document.addEventListener('keydown', keydownHandler);
     }
     else {
-      clearAllBodyScrollLocks()
-      document.removeEventListener('keydown', keydownHandler)
+      clearAllBodyScrollLocks();
+      document.removeEventListener('keydown', keydownHandler);
     }
   },
   { immediate: true },
-)
+);
 
 onBeforeUnmount(() => {
-  clearAllBodyScrollLocks()
-  document.removeEventListener('keydown', keydownHandler)
-})
+  clearAllBodyScrollLocks();
+  document.removeEventListener('keydown', keydownHandler);
+});
 
 function close() {
-  emit('close', false)
+  emit('close', false);
 }
 
 function closeIfNotPersistent() {
   if (!persistent)
-    close()
+    close();
 }
 
 function keydownHandler(event: KeyboardEvent) {
   if (event.key === ESCAPE || event.key === ESC)
-    close()
+    close();
 }
 </script>
 

@@ -3,11 +3,11 @@
  * This file isn't processed by webpack. Using `~/` results in some odd runtime problems, without any obvious errors.
  */
 
-import type { Config } from 'tailwindcss'
-import { screens } from './config/tailwind/screens'
-import { spacing } from './config/tailwind/spacing'
-import { safelist } from './config/tailwind/safelist'
-import { fontSize } from './config/tailwind/typography'
+import type { Config } from 'tailwindcss';
+import { screens } from './config/tailwind/screens';
+import { spacing } from './config/tailwind/spacing';
+import { safelist } from './config/tailwind/safelist';
+import { fontSize } from './config/tailwind/typography';
 
 export default <Config>{
   safelist,
@@ -39,4 +39,4 @@ export default <Config>{
       flexGap: true, // https://caniuse.com/flexbox-gap
     },
   },
-}
+};

@@ -21,32 +21,32 @@ const {
   button = '',
   type = 'info',
   icon = null,
-} = defineProps<Props>()
+} = defineProps<Props>();
 
-const emit = defineEmits(['click:action', 'click:close'])
+const emit = defineEmits(['click:action', 'click:close']);
 
-const iconFile = computed(() => icon !== false && icon != null ? icon : iconFromType(type))
-const colorClass = computed(() => `b-notification--${type}`)
+const iconFile = computed(() => icon !== false && icon != null ? icon : iconFromType(type));
+const colorClass = computed(() => `b-notification--${type}`);
 
 function iconFromType(type: string) {
   switch (type) {
     case 'success':
-      return 'plus'
+      return 'plus';
     case 'danger':
-      return 'x'
+      return 'x';
     case 'warning':
-      return 'warning'
+      return 'warning';
     default:
-      return 'chat'
+      return 'chat';
   }
 }
 
 function actionHandler() {
-  emit('click:action')
+  emit('click:action');
 }
 
 function closeHandler() {
-  emit('click:close')
+  emit('click:close');
 }
 </script>
 

@@ -1,4 +1,4 @@
-import LOG_VERBOSITY from '../constants/log-verbosity'
+import LOG_VERBOSITY from '../constants/log-verbosity';
 
 export default {
   [LOG_VERBOSITY.EMERGENCY]: 'background:#d12727; padding: 2px; border-radius: 0 3px 3px 0;  color: #fff',
@@ -12,4 +12,4 @@ export default {
 
   prefix: 'font-weight: bold; color: #3f3b32; background:#f8f5e9; padding: 2px; border-radius: 3px 0 0 3px;',
   reset: 'background: transparent;',
-}
+};

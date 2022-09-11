@@ -9,9 +9,9 @@ const {
   title = '',
   back = false,
   close = false,
-} = defineProps<Props>()
+} = defineProps<Props>();
 
-const emit = defineEmits(['click:close', 'click:back'])
+const emit = defineEmits(['click:close', 'click:back']);
 </script>
 
 <template>

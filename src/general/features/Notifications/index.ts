@@ -1,3 +1,3 @@
-export * from './composables/useUiNotification'
+export * from './composables/useUiNotification';
 
-export * from './types'
+export * from './types';
