@@ -1,12 +1,12 @@
 <script setup lang="ts">
-import { useUiModal } from '~/general/features/Modals'
+import { useUiModal } from '~/general/features/Modals';
 
-const { modals, close: closeModal } = useUiModal()
+const { modals, close: closeModal } = useUiModal();
 </script>
 
 <template>
   <div>
-    <template v-for="modal in modals">
+    <template v-for="modal in modals as any">
       <GenericModal
         v-if="!modal.component"
         :id="modal.id"

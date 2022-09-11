@@ -4,7 +4,7 @@ interface Props {
   visible?: boolean
 }
 
-const { transition = 'fade', visible = false } = defineProps<Props>()
+const { transition = 'fade', visible = false } = defineProps<Props>();
 </script>
 
 <template>

@@ -1,5 +1,5 @@
 // @ts-expect-error CaptainCSS doesn't yet export any types so TypeScript doesn't like it. It wasn't us to write a declaration module, but ideally CaptainCSS would just support types in future
-import { pxPair, pxToRemPair } from '@captaincss/captaincss/helpers'
+import { pxPair, pxToRemPair } from '@captaincss/captaincss/helpers';
 
 export const spacing = {
   px: '1px',
@@ -44,4 +44,4 @@ export const spacing = {
   ...pxToRemPair(80),
   ...pxToRemPair(96),
   ...pxToRemPair(120),
-}
+};

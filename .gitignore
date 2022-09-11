@@ -7,3 +7,4 @@ dist
 .vscode/*
 !.vscode/settings.json
 .idea
+.eslintcache

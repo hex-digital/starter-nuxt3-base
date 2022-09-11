@@ -1,4 +1,4 @@
-import { Logger } from '~/plugins/logger'
+import { Logger } from '~/plugins/logger';
 
 /**
  * A decorator method for adding logging to function calls
@@ -7,16 +7,16 @@ import { Logger } from '~/plugins/logger'
  */
 export function withLog(methodName: any, fn: Function) {
   return (...args: any[]) => {
-    Logger.debug(`${methodName}`, '(', ...args, ')')
-    let returnValue: any
+    Logger.debug(`${methodName}`, '(', ...args, ')');
+    let returnValue: any;
     try {
-      returnValue = fn(...args)
+      returnValue = fn(...args);
     }
     catch (error) {
-      Logger.error(methodName)
-      throw error
+      Logger.error(methodName);
+      throw error;
     }
-    Logger.debug(`${methodName} end`)
-    return returnValue
-  }
+    Logger.debug(`${methodName} end`);
+    return returnValue;
+  };
 }

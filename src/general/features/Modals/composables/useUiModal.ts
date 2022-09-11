@@ -1,48 +1,45 @@
-// @todo: fix these types now that we've migrated to Vue 3 (these were from Vue 2)
-// import type { AsyncComponent } from 'vue/types/options'
-// import type { VueConstructor } from 'vue'
-import type { ModalData, Modals } from '~/general/features/Modals/types'
-import { Logger } from '~/plugins/logger'
+import type { ModalData, Modals } from '~/general/features/Modals/types';
+import { Logger } from '~/plugins/logger';
 
-export const CLOSE = 'close'
+export const CLOSE = 'close';
 
 const state = reactive<Modals>({
   modals: [],
-})
-const maxVisibleModals = 10
+});
+const maxVisibleModals = 10;
 
 export function useUiModal() {
   function open(modalData?: ModalData) {
-    const id = Symbol('modal')
+    const id = Symbol('modal');
 
     function dismiss() {
-      close(id)
+      close(id);
     }
 
     const modal = Object.assign({}, modalData, {
       id,
       dismiss,
-    })
+    });
 
-    state.modals.push(modal)
+    state.modals.push(modal);
 
     if (state.modals.length > maxVisibleModals)
-      state.modals.shift()
+      state.modals.shift();
 
-    Logger.debug('useUiModal/open', modal)
+    Logger.debug('useUiModal/open', modal);
 
-    return id
+    return id;
   }
 
   function close(id: Symbol) {
-    const index = state.modals.findIndex(modal => modal.id === id)
+    const index = state.modals.findIndex(modal => modal.id === id);
 
     if (index !== -1) {
-      const modal = state.modals[index]
+      const modal = state.modals[index];
       if (modal.onDismiss)
-        modal.onDismiss()
+        modal.onDismiss();
 
-      state.modals.splice(index, 1)
+      state.modals.splice(index, 1);
     }
   }
 
@@ -50,5 +47,5 @@ export function useUiModal() {
     open,
     close,
     modals: computed(() => state.modals),
-  }
+  };
 }

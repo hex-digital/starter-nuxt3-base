@@ -1,3 +1,3 @@
-export * from './composables/useUiModal'
+export * from './composables/useUiModal';
 
-export * from './types'
+export * from './types';

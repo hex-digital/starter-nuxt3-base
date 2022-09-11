@@ -46,11 +46,13 @@ jobs:
             ${{ runner.os }}-node-v${{ matrix.node }}-yarn-
 
       - name: Install dependencies 👨🏻‍💻
-        if: steps.yarn-cache.outputs.cache-hit != 'true'
         run: yarn install && yarn --cwd src install
 
       - name: Run linter 👀
         run: yarn lint
+
+      - name: Run type checking 📚
+        run: yarn typecheck
 
       #- name: Run tests 🧪
       #  run: yarn test
