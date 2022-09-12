@@ -5,7 +5,7 @@ the same application layer (e.g. component, composable, service, repository, etc
 type, such as SyntaxError.
 
 When throwing an error, that won't be handled on the same application layer (e.g. component, composable, service,
-repository, etc), you should create a new error class that extends the CustomError, and throw this.
+API, etc), you should create a new error class that extends the CustomError, and throw this.
 
 It's a common pattern to catch lower level errors, and wrap them into a higher level error, such as catching SyntaxError
 and RangeErrors, and wrapping them into an AddToCartError, for example.
