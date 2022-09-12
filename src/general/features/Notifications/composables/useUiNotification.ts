@@ -1,5 +1,5 @@
-import { maxVisibleNotifications, timeToLive } from '../config';
 import type { NotificationData, Notifications } from '../types';
+import { maxVisibleNotifications, timeToLive } from '~/config/app/notifications';
 import { Logger } from '~/plugins/logger';
 
 export const DISMISS = 'userDismiss';

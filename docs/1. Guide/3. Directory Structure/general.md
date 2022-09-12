@@ -1,6 +1,10 @@
 # Guide > Directory Structure > General
 
-Write up required...
+
+- What is the general directory
+- How is it used
+- What is the directory structure inside of a general feature
+
 
 ## Constants
 
