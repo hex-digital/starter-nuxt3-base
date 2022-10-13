@@ -11,7 +11,7 @@
   "devDependencies": {
     "@captaincss/captaincss": "^2.4.0",
     "@nuxtjs/tailwindcss": "^5.3.3",
-    "@pinia/nuxt": "^0.4.0",
+    "@pinia/nuxt": "^0.4.3",
     "@types/body-scroll-lock": "^3.1.0",
     "@vueuse/components": "^9.1.0",
     "@vueuse/integrations": "^9.1.0",
