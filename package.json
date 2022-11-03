@@ -18,7 +18,7 @@
   },
   "dependencies": {},
   "devDependencies": {
-    "@commitlint/cli": "^17.1.2",
+    "@commitlint/cli": "^17.2.0",
     "@hexdigital/config-commitlint": "^1.0.1",
     "@hexdigital/eslint-config": "^1.0.6",
     "eslint": "^8.23.0",
