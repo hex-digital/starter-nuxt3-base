@@ -21,7 +21,7 @@
     "@commitlint/cli": "^17.1.2",
     "@hexdigital/config-commitlint": "^1.0.1",
     "@hexdigital/eslint-config": "^1.0.6",
-    "eslint": "^8.23.0",
+    "eslint": "^8.28.0",
     "husky": "^8.0.1",
     "lint-staged": "^13.0.3"
   }
