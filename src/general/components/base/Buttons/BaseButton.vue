@@ -1,12 +1,14 @@
 <script setup lang="ts">
 import type { ButtonType } from '~/general/types/html';
 
+import type { ButtonSize, ButtonTheme } from '~/general/components/base/Buttons/types';
+
 interface Props {
   disabled?: boolean
   pure?: boolean
   type?: ButtonType
-  theme?: 'primary' | null
-  size?: 'small' | null
+  theme?: ButtonTheme
+  size?: ButtonSize
   href?: string | null
 }
 
