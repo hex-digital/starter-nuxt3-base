@@ -1,35 +1,35 @@
 <script setup lang="ts">
 import type { ButtonType } from '~/general/types/html';
 
-const {
-  disabled = false,
-  pure = false,
-  type = 'button',
-  theme = null,
-  size = null,
-  href = null,
-} = defineProps<Props>();
-
-defineEmits(['click']);
-
 interface Props {
   disabled?: boolean
   pure?: boolean
   type?: ButtonType
   theme?: 'primary' | null
   size?: 'small' | null
-  href?: string
+  href?: string | null
 }
 
+const props = withDefaults(defineProps<Props>(), {
+  disabled: false,
+  pure: false,
+  type: 'button',
+  theme: null,
+  size: null,
+  href: null,
+});
+
+defineEmits(['click']);
+
 const onClient = computed(() => !process.server);
-const isLink = href?.length;
+const isLink = props.href?.length;
 
 const buttonClasses = computed(() => ({
   'button': true,
-  [`is-${theme}`]: theme && !pure,
-  [`button--${size}`]: size,
-  'button--pure': pure,
-  'button--disabled': disabled,
+  [`is-${props.theme}`]: props.theme && !props.pure,
+  [`button--${props.size}`]: props.size,
+  'button--pure': props.pure,
+  'button--disabled': props.disabled,
   'button--hydrating': !onClient,
 }));
 </script>
@@ -39,8 +39,8 @@ const buttonClasses = computed(() => ({
     <component
       :is="isLink ? 'a' : 'button'"
       :class="buttonClasses"
-      :type="type"
-      :aria-disabled="disabled"
+      :type="props.type"
+      :aria-disabled="props.disabled"
       @click.stop="$emit('click')"
     >
       <slot />

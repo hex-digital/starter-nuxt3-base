@@ -67,7 +67,7 @@ might log Emergency and Critical to a different channel than Error, for example.
 
 Verbosity is set by the following methods, in descending order of priority:
 
-- `LOG_LEVEL` defined in `.env`
+- `APP_LOG_LEVEL` defined in `.env`
 - Based on the `APP_ENVIRONMENT` defined in `.env`
 - Based on the `NODE_ENV` defined on `process.env`
 - Otherwise, the fallback defined in the logger as the default mode
