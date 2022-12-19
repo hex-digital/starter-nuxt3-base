@@ -32,30 +32,32 @@ jobs:
         run: |
           cp .github/.env.src src/.env
 
-      - name: Get yarn cache directory path 🛠
-        id: yarn-cache-dir-path
-        run: echo "::set-output name=dir::$(yarn cache dir)"
+# TODO: Sort out this caching for pnpm
+#
+#      - name: Get yarn cache directory path 🛠
+#        id: yarn-cache-dir-path
+#        run: echo "::set-output name=dir::$(yarn cache dir)"
+#
+#      - name: Cache node_modules 📦
+#        uses: actions/cache@v3.0.11
+#        id: yarn-cache # use this to check for `cache-hit` (`steps.yarn-cache.outputs.cache-hit != 'true'`)
+#        with:
+#          path: ${{ steps.yarn-cache-dir-path.outputs.dir }}
+#          key: ${{ runner.os }}-node-v${{ matrix.node }}-yarn-${{ hashFiles('**/yarn.lock') }}
+#          restore-keys: |
+#            ${{ runner.os }}-node-v${{ matrix.node }}-yarn-
 
-      - name: Cache node_modules 📦
-        uses: actions/cache@v3.0.11
-        id: yarn-cache # use this to check for `cache-hit` (`steps.yarn-cache.outputs.cache-hit != 'true'`)
-        with:
-          path: ${{ steps.yarn-cache-dir-path.outputs.dir }}
-          key: ${{ runner.os }}-node-v${{ matrix.node }}-yarn-${{ hashFiles('**/yarn.lock') }}
-          restore-keys: |
-            ${{ runner.os }}-node-v${{ matrix.node }}-yarn-
-
-      - name: Install dependencies 👨🏻‍💻
-        run: yarn install && yarn --cwd src install
+      - name: Install root + src dependencies 👨🏻‍💻
+        run: pnpm install && pnpm --dir src install
 
       - name: Run linter 👀
-        run: yarn lint
+        run: pnpm lint
 
       - name: Run type checking 📚
-        run: yarn typecheck
+        run: pnpm typecheck
 
       #- name: Run tests 🧪
-      #  run: yarn test
+      #  run: pnpm test
 
       - name: Build app 🖥
-        run: yarn --cwd src build
+        run: pnpm --dir src build

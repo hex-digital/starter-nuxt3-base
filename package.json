@@ -1,5 +1,5 @@
 {
-  "packageManager": "yarn@1.22.9",
+  "packageManager": "pnpm@7.18.2",
   "browserslist": [
     "> 1%",
     "last 4 versions",
@@ -10,10 +10,11 @@
     "not dead"
   ],
   "scripts": {
-    "install:all": "for D in */; do yarn --cwd \"${D}\"; done",
+    "nuxi": "echo 'test'",
+    "install:all": "pnpm -r install",
     "lint": "eslint --cache src",
     "lint:fix": "eslint --cache --fix src",
-    "typecheck": "yarn --cwd src nuxi typecheck --noEmit",
+    "typecheck": "pnpm -r typecheck",
     "prepare": "husky install"
   },
   "dependencies": {},
@@ -24,5 +25,7 @@
     "eslint": "^8.23.0",
     "husky": "^8.0.1",
     "lint-staged": "^13.0.3"
-  }
+  },
+  "private": true,
+  "license": "All Rights Reserved"
 }
