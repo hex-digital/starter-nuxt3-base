@@ -1,19 +1,13 @@
-import { defineNuxtConfig } from 'nuxt';
 import components from './config/nuxt/components';
 import { build } from './config/nuxt/build';
 import { postcss } from './config/nuxt/postcss';
 import { plugins } from './config/nuxt/plugins';
 import { hooks } from './config/nuxt/hooks';
-import { privateRuntimeConfig, publicRuntimeConfig } from './config/nuxt/runtimeConfig';
+import { runtimeConfig } from './config/nuxt/runtimeConfig';
 
-// See: https://v3.nuxtjs.org/api/configuration/nuxt.config
+// See: https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
-  experimental: {
-    reactivityTransform: true, // See: https://vuejs.org/guide/extras/reactivity-transform.html
-  },
-
-  publicRuntimeConfig,
-  privateRuntimeConfig,
+  runtimeConfig,
 
   components,
 
