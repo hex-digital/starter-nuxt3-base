@@ -267,10 +267,10 @@
     "@babel/helper-validator-identifier" "^7.19.1"
     to-fast-properties "^2.0.0"
 
-"@captaincss/captaincss@^2.4.0":
-  version "2.4.0"
-  resolved "https://registry.yarnpkg.com/@captaincss/captaincss/-/captaincss-2.4.0.tgz#0faa355dd068335bc53c3a114a45e0674b42db4d"
-  integrity sha512-+DM8lob9cVYm7bDL8AcgSrDldlP7HO+3SZ8dFIVPC66WJh1Mei64WLdQS7SdxzDHpYMLwgvvhwb5UgIYwRUK9w==
+"@captaincss/captaincss@^2.5.0":
+  version "2.5.0"
+  resolved "https://registry.yarnpkg.com/@captaincss/captaincss/-/captaincss-2.5.0.tgz#2c8413a0fdf739aeabb88d391370aa48fcc049a3"
+  integrity sha512-NBXNGvCfriyfcfk8qIu2qWmd0LRnDQP8Fe9FZws8mJTXH3Eoe4nEqTw2t2hl1PbETz6GYZrr5AdYiMmsDAZ8WA==
   dependencies:
     lodash "^4.17.20"
     reduce-css-calc "^2.1.8"

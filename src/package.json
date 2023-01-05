@@ -9,7 +9,7 @@
   },
   "dependencies": {},
   "devDependencies": {
-    "@captaincss/captaincss": "^2.4.0",
+    "@captaincss/captaincss": "^2.5.0",
     "@nuxtjs/tailwindcss": "^6.2.0",
     "@pinia/nuxt": "^0.4.0",
     "@types/body-scroll-lock": "^3.1.0",
