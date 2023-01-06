@@ -1,6 +1,6 @@
 version: 2
 updates:
-  # Fetch and update latest `yarn` packages
+  # Fetch and update latest `pnpm` packages for project root
   - package-ecosystem: npm
     directory: '/'
     schedule:
@@ -13,7 +13,7 @@ updates:
       prefix-development: chore
       include: scope
 
-  # Fetch and update latest `github-actions` packages
+  # Fetch and update latest `github-actions` packages for project root
   - package-ecosystem: github-actions
     directory: '/'
     schedule:
@@ -26,7 +26,7 @@ updates:
       prefix-development: chore
       include: scope
 
-  # Fetch and update latest project `yarn` packages
+  # Fetch and update latest project `pnpm` packages for /src directory
   - package-ecosystem: npm
     directory: '/src/'
     schedule:
