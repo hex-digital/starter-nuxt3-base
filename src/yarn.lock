@@ -1019,6 +1019,16 @@
     "@vueuse/shared" "9.7.0"
     vue-demi "*"
 
+"@vueuse/core@9.11.1":
+  version "9.11.1"
+  resolved "https://registry.yarnpkg.com/@vueuse/core/-/core-9.11.1.tgz#1552aef67144220da7e6b797372a194a9c7ff52e"
+  integrity sha512-E/cizD1w9ILkq4axYjZrXLkKaBfzloaby2n3NMjUfd6yI/jkfTVgc6iwy/Cw2e++Ld4LphGbO+3MhzizvwUslQ==
+  dependencies:
+    "@types/web-bluetooth" "^0.0.16"
+    "@vueuse/metadata" "9.11.1"
+    "@vueuse/shared" "9.11.1"
+    vue-demi "*"
+
 "@vueuse/core@9.7.0":
   version "9.7.0"
   resolved "https://registry.yarnpkg.com/@vueuse/core/-/core-9.7.0.tgz#5546ce8fbdca7a595671e7c05376c322b69268e6"
@@ -1039,14 +1049,19 @@
     "@unhead/ssr" "^1.0.9"
     "@unhead/vue" "^1.0.9"
 
-"@vueuse/integrations@^9.1.0":
-  version "9.7.0"
-  resolved "https://registry.yarnpkg.com/@vueuse/integrations/-/integrations-9.7.0.tgz#c5ba5f378c5a8628d48ea10923b82c4d22e84d5f"
-  integrity sha512-YWJIV+9gMQi2dGMw+x+Ocizs2/N/weQbPr71WdR6RguCvEctNbiwQt5FcKbS9KvCY7+7hdoqYF+vCL+cIXRkEg==
+"@vueuse/integrations@^9.11.1":
+  version "9.11.1"
+  resolved "https://registry.yarnpkg.com/@vueuse/integrations/-/integrations-9.11.1.tgz#ddcb69210d406992c74f32936443e16575a290e6"
+  integrity sha512-1VBT1U0ScI0GmJn+i7RvyCX5P+Dh04yxHurN3RniYPCFOJ8mCKSqJlzSA5aQ94UIK0ZKI2RyEGS8FY0WAteixw==
   dependencies:
-    "@vueuse/core" "9.7.0"
-    "@vueuse/shared" "9.7.0"
+    "@vueuse/core" "9.11.1"
+    "@vueuse/shared" "9.11.1"
     vue-demi "*"
+
+"@vueuse/metadata@9.11.1":
+  version "9.11.1"
+  resolved "https://registry.yarnpkg.com/@vueuse/metadata/-/metadata-9.11.1.tgz#f4e5fd9cb421c5a02373d034a0ce53538b370518"
+  integrity sha512-ABjkrG+VXggNhjfGyw5e/sekxTZfXTwjrYXkkWQmQ7Biyv+Gq9UD6IDNfeGvQZEINI0Qzw6nfuO2UFCd3hlrxQ==
 
 "@vueuse/metadata@9.7.0":
   version "9.7.0"
@@ -1062,6 +1077,13 @@
     "@vueuse/core" "9.7.0"
     "@vueuse/metadata" "9.7.0"
     local-pkg "^0.4.2"
+    vue-demi "*"
+
+"@vueuse/shared@9.11.1":
+  version "9.11.1"
+  resolved "https://registry.yarnpkg.com/@vueuse/shared/-/shared-9.11.1.tgz#c76805c9d86da109b132529b4745d7d706106e7f"
+  integrity sha512-UTZYGAjT96hWn4buf4wstZbeheBVNcKPQuej6qpoSkjF1atdaeCD6kqm9uGL2waHfisSgH9mq0qCRiBOk5C/2w==
+  dependencies:
     vue-demi "*"
 
 "@vueuse/shared@9.7.0":
