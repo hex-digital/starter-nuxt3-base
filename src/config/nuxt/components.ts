@@ -28,5 +28,10 @@ export default {
       pattern: '**/*.vue',
       pathPrefix: false,
     },
+    {
+      path: '~/modules',
+      pattern: '**/*.vue',
+      pathPrefix: false,
+    },
   ],
 };

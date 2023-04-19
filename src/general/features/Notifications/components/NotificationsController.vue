@@ -21,7 +21,7 @@ function closeOfflineNotice() {
 <template>
   <transition-group class="global-notifications" name="slide-fade" tag="div">
     <BaseNotification
-      v-for="notification in notifications as any"
+      v-for="notification in notifications"
       :key="notification.id"
       :button="notification.action && notification.action.text"
       :message="notification.message"
@@ -33,7 +33,7 @@ function closeOfflineNotice() {
       @click:action="notification?.action?.onClick"
     />
     <BaseNotification
-      v-if="!online"
+      v-show="!online"
       key="offline"
       message="Your internet seems to be unstable or disconnected."
       type="info"
@@ -51,7 +51,7 @@ function closeOfflineNotice() {
   bottom: 0;
   display: flex;
   flex-direction: column;
-  left: 100%;
+  left: 0;
   position: fixed;
   right: 0;
   width: 100%;
@@ -79,7 +79,7 @@ function closeOfflineNotice() {
   --notification-max-width: 100%;
   --notification-padding: theme('padding.16') theme('padding.8') theme('padding.16') theme('padding.12');
 
-  margin: 0 theme('margin.8') theme('margin.8') auto;
+  margin: 0 theme('margin.8') theme('margin.8') theme('margin.8');
   max-width: 100%;
 
   @screen desk {
