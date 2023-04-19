@@ -1,3 +1,17 @@
+<template>
+  <span class="b-button">
+    <component
+      :is="isLink ? 'a' : 'button'"
+      :class="buttonClasses"
+      :type="props.type"
+      :aria-disabled="props.disabled"
+      @click.stop="$emit('click')"
+    >
+      <slot />
+    </component>
+  </span>
+</template>
+
 <script setup lang="ts">
 import type { ButtonType } from '~/general/types/html';
 
@@ -35,20 +49,6 @@ const buttonClasses = computed(() => ({
   'button--hydrating': !onClient,
 }));
 </script>
-
-<template>
-  <span class="b-button">
-    <component
-      :is="isLink ? 'a' : 'button'"
-      :class="buttonClasses"
-      :type="props.type"
-      :aria-disabled="props.disabled"
-      @click.stop="$emit('click')"
-    >
-      <slot />
-    </component>
-  </span>
-</template>
 
 <style scoped>
 .b-button {

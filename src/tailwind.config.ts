@@ -11,6 +11,7 @@ import { fontSize } from './config/tailwind/typography';
 
 export default <Config>{
   safelist,
+  // eslint-disable-next-line @typescript-eslint/no-require-imports
   plugins: [require('@captaincss/captaincss')],
   prefix: 'u-',
   theme: {

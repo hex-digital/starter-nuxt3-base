@@ -1,3 +1,20 @@
+<template>
+  <BaseModal :visible="true" :title="modalTitle" @close="$emit('close')">
+    <h4 v-if="heading" style="margin-bottom: 2rem">
+      {{ heading }}
+    </h4>
+    <div v-if="content" v-html="content" />
+    <BaseButton
+      v-for="(button, index) in buttons"
+      :key="index"
+      :theme="button.theme"
+      @click="onClick(button.onClick)"
+    >
+      {{ button.text }}
+    </BaseButton>
+  </BaseModal>
+</template>
+
 <script setup lang="ts">
 import type { UiModalButton } from '~/general/features/Modals';
 
@@ -20,21 +37,10 @@ const {
 const emit = defineEmits(['close']);
 
 function onClick(onClick: UiModalButton['onClick']) {
-  if (onClick === 'close')
+  if (onClick === 'close') {
     emit('close');
-  else
+  } else {
     onClick();
+  }
 }
 </script>
-
-<template>
-  <BaseModal :visible="true" :title="modalTitle" @close="$emit('close')">
-    <h4 v-if="heading" style="margin-bottom: 2rem">
-      {{ heading }}
-    </h4>
-    <div v-if="content" v-html="content" />
-    <BaseButton v-for="(button, index) in buttons" :key="index" :theme="button.theme" @click="onClick(button.onClick)">
-      {{ button.text }}
-    </BaseButton>
-  </BaseModal>
-</template>

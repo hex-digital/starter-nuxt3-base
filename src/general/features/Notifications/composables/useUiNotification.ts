@@ -1,6 +1,6 @@
 import type { NotificationData, Notifications } from '../types';
 import { maxVisibleNotifications, timeToLive } from '~/config/app/notifications';
-import { Logger } from '~/plugins/logger';
+import { logger } from '~/plugins/logger';
 
 export const DISMISS = 'userDismiss';
 export const REMOVE = 'remove';
@@ -21,20 +21,23 @@ export function useUiNotification() {
     });
 
     function userDismiss() {
-      if (notification.onDismiss && notification.alive)
+      if (notification.onDismiss && notification.alive) {
         notification.onDismiss();
+      }
 
       remove(id);
     }
 
     state.notifications.push(notification);
-    if (state.notifications.length > maxVisibleNotifications)
+    if (state.notifications.length > maxVisibleNotifications) {
       state.notifications.shift();
+    }
 
-    if (!notification.persistent)
+    if (!notification.persistent) {
       setTimeout(userDismiss, (notification.timeToLive || timeToLive) * 1000);
+    }
 
-    Logger.debug('useUiNotification/send', notification);
+    logger.debug('useUiNotification/send', notification);
 
     return id;
   }
@@ -49,8 +52,9 @@ export function useUiNotification() {
     if (index !== -1) {
       const notification = state.notifications[index];
 
-      if (notification.onRemove && notification.alive)
+      if (notification.onRemove && notification.alive) {
         notification.onRemove();
+      }
 
       notification.alive = false;
 

@@ -1,5 +1,5 @@
 import type { ModalData, Modals } from '~/general/features/Modals/types';
-import { Logger } from '~/plugins/logger';
+import { logger } from '~/plugins/logger';
 
 export const CLOSE = 'close';
 
@@ -23,10 +23,11 @@ export function useUiModal() {
 
     state.modals.push(modal);
 
-    if (state.modals.length > maxVisibleModals)
+    if (state.modals.length > maxVisibleModals) {
       state.modals.shift();
+    }
 
-    Logger.debug('useUiModal/open', modal);
+    logger.debug('useUiModal/open', modal);
 
     return id;
   }
@@ -36,8 +37,9 @@ export function useUiModal() {
 
     if (index !== -1) {
       const modal = state.modals[index];
-      if (modal.onDismiss)
+      if (modal.onDismiss) {
         modal.onDismiss();
+      }
 
       state.modals.splice(index, 1);
     }

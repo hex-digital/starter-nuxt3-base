@@ -1,9 +1,3 @@
-<script setup lang="ts">
-import { useUiModal } from '~/general/features/Modals';
-
-const { modals, close: closeModal } = useUiModal();
-</script>
-
 <template>
   <div>
     <template v-for="modal in modals as any">
@@ -18,9 +12,21 @@ const { modals, close: closeModal } = useUiModal();
         @close="closeModal(modal.id)"
       />
 
-      <BaseModal v-else :key="modal.id" :visible="true" :title="modal.title" @close="closeModal(modal.id)">
+      <BaseModal
+        v-else
+        :key="modal.id"
+        :visible="true"
+        :title="modal.title"
+        @close="closeModal(modal.id)"
+      >
         <component :is="modal.component" v-bind="modal.componentBinds" @close="closeModal(modal.id)" />
       </BaseModal>
     </template>
   </div>
 </template>
+
+<script setup lang="ts">
+import { useUiModal } from '~/general/features/Modals';
+
+const { modals, close: closeModal } = useUiModal();
+</script>

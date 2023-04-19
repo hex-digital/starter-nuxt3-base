@@ -6,10 +6,12 @@ import { pxToRem } from '@captaincss/captaincss/helpers';
 // Open to adjusting these - based them on these articles for now
 // - jamie@hexdigital.com - 29/10/2021
 
-export const screens = () => ({
-  'phone': pxToRem('599'),
-  'tablet': pxToRem('600'),
-  'tablet-wide': pxToRem('900'),
-  'desk': pxToRem('1200'),
-  'big-desk': pxToRem('1800'),
-});
+export function screens() {
+  return {
+    'phone': pxToRem('599'),
+    'tablet': pxToRem('600'),
+    'tablet-wide': pxToRem('900'),
+    'desk': pxToRem('1200'),
+    'big-desk': pxToRem('1800'),
+  };
+}
