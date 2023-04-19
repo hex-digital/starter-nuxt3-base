@@ -10,7 +10,6 @@
     "not dead"
   ],
   "scripts": {
-    "install:all": "pnpm -r install",
     "lint": "eslint --cache src",
     "lint:fix": "eslint --cache --fix src",
     "typecheck": "pnpm -r typecheck",

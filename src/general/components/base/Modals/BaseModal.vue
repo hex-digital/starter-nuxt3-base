@@ -1,78 +1,3 @@
-<script setup lang="ts">
-import { onClickOutside } from '@vueuse/core'
-import { UseFocusTrap } from '@vueuse/integrations/useFocusTrap/component'
-import { clearAllBodyScrollLocks, disableBodyScroll } from 'body-scroll-lock'
-import { ESC, ESCAPE } from '~/general/constants/keyboardEventKeys'
-
-interface Props {
-  title?: string
-  visible?: boolean
-  cross?: boolean
-  overlay?: boolean
-  persistent?: boolean
-  transitionOverlay?: string
-  transitionModal?: string
-}
-
-const {
-  title = '',
-  visible = false,
-  cross = true,
-  overlay = true,
-  persistent = false,
-  transitionOverlay = 'fade',
-  transitionModal = 'fade',
-} = defineProps<Props>()
-
-const emit = defineEmits(['close'])
-
-const refContainer = ref(null)
-const refContent = ref(null)
-
-// @ts-expect-error There seems to be an issue with the typing here and Ref's, but it's not a problem so we ignore
-onClickOutside(refContainer, () => closeIfNotPersistent())
-
-watch(
-  () => visible,
-  (isVisible) => {
-    if (!process.client)
-      return
-
-    if (isVisible) {
-      nextTick(() => {
-        if (refContent.value)
-          disableBodyScroll(refContent.value)
-      })
-      document.addEventListener('keydown', keydownHandler)
-    }
-    else {
-      clearAllBodyScrollLocks()
-      document.removeEventListener('keydown', keydownHandler)
-    }
-  },
-  { immediate: true },
-)
-
-onBeforeUnmount(() => {
-  clearAllBodyScrollLocks()
-  document.removeEventListener('keydown', keydownHandler)
-})
-
-function close() {
-  emit('close', false)
-}
-
-function closeIfNotPersistent() {
-  if (!persistent)
-    close()
-}
-
-function keydownHandler(event: KeyboardEvent) {
-  if (event.key === ESCAPE || event.key === ESC)
-    close()
-}
-</script>
-
 <template>
   <section class="b-modal">
     <BaseOverlay
@@ -115,6 +40,83 @@ function keydownHandler(event: KeyboardEvent) {
     </Transition>
   </section>
 </template>
+
+<script setup lang="ts">
+import { onClickOutside } from '@vueuse/core';
+import { UseFocusTrap } from '@vueuse/integrations/useFocusTrap/component';
+import { clearAllBodyScrollLocks, disableBodyScroll } from 'body-scroll-lock';
+import { ESC, ESCAPE } from '~/general/constants/keyboardEventKeys';
+
+interface Props {
+  title?: string
+  visible?: boolean
+  cross?: boolean
+  overlay?: boolean
+  persistent?: boolean
+  transitionOverlay?: string
+  transitionModal?: string
+}
+
+const {
+  title = '',
+  visible = false,
+  cross = true,
+  overlay = true,
+  persistent = false,
+  transitionOverlay = 'fade',
+  transitionModal = 'fade',
+} = defineProps<Props>();
+
+const emit = defineEmits(['close']);
+
+const refContainer = ref(null);
+const refContent = ref(null);
+
+onClickOutside(refContainer, () => closeIfNotPersistent());
+
+watch(
+  () => visible,
+  (isVisible: boolean) => {
+    if (!process.client) {
+      return;
+    }
+
+    if (isVisible) {
+      nextTick(() => {
+        if (refContent.value) {
+          disableBodyScroll(refContent.value);
+        }
+      });
+      document.addEventListener('keydown', keydownHandler);
+    } else {
+      clearAllBodyScrollLocks();
+      document.removeEventListener('keydown', keydownHandler);
+    }
+  },
+  { immediate: true },
+);
+
+onBeforeUnmount(() => {
+  clearAllBodyScrollLocks();
+  document.removeEventListener('keydown', keydownHandler);
+});
+
+function close() {
+  emit('close', false);
+}
+
+function closeIfNotPersistent() {
+  if (!persistent) {
+    close();
+  }
+}
+
+function keydownHandler(event: KeyboardEvent) {
+  if (event.key === ESCAPE || event.key === ESC) {
+    close();
+  }
+}
+</script>
 
 <style scoped>
 @screen desk {
