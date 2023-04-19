@@ -39,7 +39,7 @@ jobs:
           cp .github/.env.src src/.env
 
       - name: Install root + src dependencies 👨🏻‍💻
-        run: pnpm install && pnpm --dir src install
+        run: pnpm install --frozen-lockfile
 
       - name: Run linter 👀
         run: pnpm lint
