@@ -1,19 +1,3 @@
-<script setup lang="ts">
-interface Props {
-  title?: string
-  back?: boolean
-  close?: boolean
-}
-
-const {
-  title = '',
-  back = false,
-  close = false,
-} = defineProps<Props>();
-
-const emit = defineEmits(['click:close', 'click:back']);
-</script>
-
 <template>
   <div class="b-bar">
     <div>
@@ -53,6 +37,22 @@ const emit = defineEmits(['click:close', 'click:back']);
     </div>
   </div>
 </template>
+
+<script setup lang="ts">
+interface Props {
+  title?: string
+  back?: boolean
+  close?: boolean
+}
+
+const {
+  title = '',
+  back = false,
+  close = false,
+} = defineProps<Props>();
+
+const emit = defineEmits(['click:close', 'click:back']);
+</script>
 
 <style>
 .b-bar {

@@ -1,3 +1,53 @@
+<template>
+  <transition name="base-fade">
+    <div v-show="visible" class="b-notification" :class="[colorClass]">
+      <slot name="icon" v-bind="{ icon }">
+        <!--        <BaseIcon -->
+        <!--            v-show="icon !== false && iconFile" -->
+        <!--            :type="iconFile" -->
+        <!--            class="b-notification__icon" -->
+        <!--            color="currentColor" -->
+        <!--        /> -->
+      </slot>
+
+      <div>
+        <slot name="title" v-bind="{ title }">
+          <div v-show="title" class="b-notification__title desk:u-hidden">
+            {{ title }}
+          </div>
+        </slot>
+
+        <slot name="message" v-bind="{ message }">
+          <span v-show="message" class="b-notification__message">{{ message }}</span>
+        </slot>
+
+        <slot name="button" v-bind="{ button, actionHandler }">
+          <BaseButton
+            v-show="button"
+            class="b-notification__action"
+            pure
+            @click="actionHandler"
+          >
+            {{ button }}
+          </BaseButton>
+        </slot>
+      </div>
+      <slot name="close" v-bind="{ closeHandler }">
+        <BaseButton
+          v-show="close"
+          aria-label="Close notification"
+          class="b-notification__close"
+          pure
+          @click="closeHandler"
+        >
+          <!--          <BaseIcon color="gray" type="x"/> -->
+          <div>x</div>
+        </BaseButton>
+      </slot>
+    </div>
+  </transition>
+</template>
+
 <script setup lang="ts">
 /**
  * todo: Implement the app-fade transitions
@@ -25,7 +75,7 @@ const {
 
 const emit = defineEmits(['click:action', 'click:close']);
 
-const iconFile = computed(() => icon !== false && icon != null ? icon : iconFromType(type));
+const iconFile = computed(() => (icon !== false && icon != null) ? icon : iconFromType(type));
 const colorClass = computed(() => `b-notification--${type}`);
 
 function iconFromType(type: string) {
@@ -49,51 +99,6 @@ function closeHandler() {
   emit('click:close');
 }
 </script>
-
-<template>
-  <transition name="base-fade">
-    <div v-show="visible" class="b-notification" :class="[colorClass]">
-      <slot name="icon" v-bind="{ icon }">
-        <!--        <BaseIcon -->
-        <!--            v-show="icon !== false && iconFile" -->
-        <!--            :type="iconFile" -->
-        <!--            class="b-notification__icon" -->
-        <!--            color="currentColor" -->
-        <!--        /> -->
-      </slot>
-
-      <div>
-        <slot name="title" v-bind="{ title }">
-          <div v-show="title" class="b-notification__title desk:u-hidden">
-            {{ title }}
-          </div>
-        </slot>
-
-        <slot name="message" v-bind="{ message }">
-          <span v-show="message" class="b-notification__message">{{ message }}</span>
-        </slot>
-
-        <slot name="button" v-bind="{ button, actionHandler }">
-          <BaseButton v-show="button" class="b-notification__action" pure @click="actionHandler">
-            {{ button }}
-          </BaseButton>
-        </slot>
-      </div>
-      <slot name="close" v-bind="{ closeHandler }">
-        <BaseButton
-          v-show="close"
-          aria-label="Close notification"
-          class="b-notification__close"
-          pure
-          @click="closeHandler"
-        >
-          <!--          <BaseIcon color="gray" type="x"/> -->
-          <div>x</div>
-        </BaseButton>
-      </slot>
-    </div>
-  </transition>
-</template>
 
 <style scoped>
 .b-notification {

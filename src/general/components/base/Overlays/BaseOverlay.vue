@@ -1,3 +1,9 @@
+<template>
+  <Transition :name="transition">
+    <div v-if="visible" class="b-overlay" v-bind="$attrs" />
+  </Transition>
+</template>
+
 <script setup lang="ts">
 interface Props {
   transition?: string
@@ -6,12 +12,6 @@ interface Props {
 
 const { transition = 'fade', visible = false } = defineProps<Props>();
 </script>
-
-<template>
-  <Transition :name="transition">
-    <div v-if="visible" ref="overlay" class="b-overlay" v-bind="$attrs" />
-  </Transition>
-</template>
 
 <style>
 .b-overlay {

@@ -1,13 +1,3 @@
-<script setup>
-const error = useError();
-
-function handleError() {
-  clearError({
-    redirect: '/',
-  });
-}
-</script>
-
 <template>
   <div>
     <NuxtLayout>
@@ -17,3 +7,13 @@ function handleError() {
     </NuxtLayout>
   </div>
 </template>
+
+<script setup>
+const error = useError();
+
+function handleError() {
+  clearError({
+    redirect: '/',
+  });
+}
+</script>

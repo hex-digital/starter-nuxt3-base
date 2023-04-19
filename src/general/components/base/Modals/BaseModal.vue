@@ -1,8 +1,8 @@
 <script setup lang="ts">
-import { onClickOutside } from '@vueuse/core';
-import { UseFocusTrap } from '@vueuse/integrations/useFocusTrap/component';
-import { clearAllBodyScrollLocks, disableBodyScroll } from 'body-scroll-lock';
-import { ESC, ESCAPE } from '~/general/constants/keyboardEventKeys';
+import { onClickOutside } from '@vueuse/core'
+import { UseFocusTrap } from '@vueuse/integrations/useFocusTrap/component'
+import { clearAllBodyScrollLocks, disableBodyScroll } from 'body-scroll-lock'
+import { ESC, ESCAPE } from '~/general/constants/keyboardEventKeys'
 
 interface Props {
   title?: string
@@ -22,64 +22,75 @@ const {
   persistent = false,
   transitionOverlay = 'fade',
   transitionModal = 'fade',
-} = defineProps<Props>();
+} = defineProps<Props>()
 
-const emit = defineEmits(['close']);
+const emit = defineEmits(['close'])
 
-const refContainer = ref<HTMLElement | null>(null);
-const refContent = ref<HTMLElement | null>(null);
+const refContainer = ref(null)
+const refContent = ref(null)
 
-onClickOutside(refContainer, () => closeIfNotPersistent());
+// @ts-expect-error There seems to be an issue with the typing here and Ref's, but it's not a problem so we ignore
+onClickOutside(refContainer, () => closeIfNotPersistent())
 
 watch(
   () => visible,
   (isVisible) => {
     if (!process.client)
-      return;
+      return
 
     if (isVisible) {
       nextTick(() => {
         if (refContent.value)
-          disableBodyScroll(refContent.value);
-      });
-      document.addEventListener('keydown', keydownHandler);
+          disableBodyScroll(refContent.value)
+      })
+      document.addEventListener('keydown', keydownHandler)
     }
     else {
-      clearAllBodyScrollLocks();
-      document.removeEventListener('keydown', keydownHandler);
+      clearAllBodyScrollLocks()
+      document.removeEventListener('keydown', keydownHandler)
     }
   },
   { immediate: true },
-);
+)
 
 onBeforeUnmount(() => {
-  clearAllBodyScrollLocks();
-  document.removeEventListener('keydown', keydownHandler);
-});
+  clearAllBodyScrollLocks()
+  document.removeEventListener('keydown', keydownHandler)
+})
 
 function close() {
-  emit('close', false);
+  emit('close', false)
 }
 
 function closeIfNotPersistent() {
   if (!persistent)
-    close();
+    close()
 }
 
 function keydownHandler(event: KeyboardEvent) {
   if (event.key === ESCAPE || event.key === ESC)
-    close();
+    close()
 }
 </script>
 
 <template>
   <section class="b-modal">
-    <BaseOverlay v-if="overlay" class="b-modal__overlay" :transition="transitionOverlay" :visible="visible" />
+    <BaseOverlay
+      v-if="overlay"
+      class="b-modal__overlay"
+      :transition="transitionOverlay"
+      :visible="visible"
+    />
     <Transition :name="transitionModal">
       <div v-if="visible" ref="refContainer" class="b-modal__container">
         <UseFocusTrap>
           <slot name="modal-bar">
-            <BaseBar class="b-modal__bar" :close="cross" :title="title" @click:close="close" />
+            <BaseBar
+              class="b-modal__bar"
+              :close="cross"
+              :title="title"
+              @click:close="close"
+            />
           </slot>
 
           <slot name="close">

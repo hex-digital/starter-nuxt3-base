@@ -1,23 +1,3 @@
-<script setup lang="ts">
-import { useOnline } from '@vueuse/core';
-import { useUiNotification } from '~/general/features/Notifications';
-
-const online = useOnline();
-
-const { notifications } = useUiNotification();
-const disableOfflineNotice = ref(false);
-
-function closeOfflineNotice() {
-  if (disableOfflineNotice.value === false) {
-    disableOfflineNotice.value = true;
-
-    setTimeout(() => {
-      disableOfflineNotice.value = false;
-    }, 1000 * 60 * 30);
-  }
-}
-</script>
-
 <template>
   <transition-group class="global-notifications" name="slide-fade" tag="div">
     <BaseNotification
@@ -43,6 +23,26 @@ function closeOfflineNotice() {
     />
   </transition-group>
 </template>
+
+<script setup lang="ts">
+import { useOnline } from '@vueuse/core';
+import { useUiNotification } from '~/general/features/Notifications';
+
+const online = useOnline();
+
+const { notifications } = useUiNotification();
+const disableOfflineNotice = ref(false);
+
+function closeOfflineNotice() {
+  if (disableOfflineNotice.value === false) {
+    disableOfflineNotice.value = true;
+
+    setTimeout(() => {
+      disableOfflineNotice.value = false;
+    }, 1000 * 60 * 30);
+  }
+}
+</script>
 
 <style>
 /** `transition-group` elements don't get the scope selector on their HTML properly, so need to make this style tag unscoped. */
